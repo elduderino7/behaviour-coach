@@ -77,4 +77,4 @@ Implementation notes: on Android the calendar step uses Google Calendar links, a
 | Journey step | Feature | Barrier it addresses / ingredient it uses | Evidence (short) |
 | --- | --- | --- | --- |
 | Calendar | Entries look ordinary to outsiders but are clear to the parent (rule 8) | Stigma and fear of being judged or labelled when others see the phone or a shared calendar | Koerting et al. 2013 (stigma); Opie et al. 2024 (privacy lowers stigma barriers) |
-| Whole app | Every departure from the rules is recorded with its reason (`docs/deviations.md`, rule 9) | Trust: the promises can be checked (the code is open source) | Design principle |
+| Whole app | Every departure from the rules is recorded with its reason (`docs/ethical-deviation-log.md`, rule 9) | Trust: the promises can be checked (the code is open source) | Design principle |
