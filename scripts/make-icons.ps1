@@ -9,9 +9,9 @@ function New-Icon([int]$size, [string]$name) {
   $g = [System.Drawing.Graphics]::FromImage($bmp)
   $g.SmoothingMode = 'AntiAlias'
   $s = $size / 64.0
-  $green = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(188, 211, 224))
+  $green = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(74, 95, 193))
   $cream = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(255, 255, 255))
-  $sand  = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(59, 102, 128))
+  $sand  = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(126, 220, 198))
   # Full-bleed background so the icon also works as a maskable icon.
   $g.FillRectangle($green, 0, 0, $size, $size)
   $g.FillEllipse($cream, 17 * $s, 18 * $s, 14 * $s, 14 * $s)
