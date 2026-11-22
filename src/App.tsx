@@ -63,7 +63,7 @@ export function App() {
       <header class="topbar">
         {stack.length > 1 ? (
           <button type="button" class="link-button" onClick={back}>
-            ‹ {ui.back_button}
+            {ui.back_button}
           </button>
         ) : (
           <span class="app-name">{ui.app_short_name}</span>

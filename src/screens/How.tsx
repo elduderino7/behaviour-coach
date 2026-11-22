@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 import { experience, fill, ui } from '../content';
 import type { ScreenProps } from '../App';
 import { buildIcs, downloadIcs, isAndroid, phoneTimeZone } from '../calendar';
-import { addDays, iso, makePlan, trialDays, type PracticePlan } from '../trial';
+import { addDays, fromIso, iso, makePlan, trialDays, type PracticePlan } from '../trial';
 import { checkinSentence, eventsFor, planSentence, trialContent } from '../planText';
 
 const c = experience.quick_start.how;
@@ -32,7 +32,7 @@ export function How({ state, update, go }: ScreenProps) {
     const time = customTime ?? opt?.time ?? otherTime;
     const label = opt?.label ?? otherLabel.trim();
     const days = customDays
-      ? customDays.map((d) => new Date(`${d}T00:00`))
+      ? customDays.map(fromIso)
       : trialDays(today, rule);
     plan = makePlan(days, time, label, customDays ? 'custom' : rule);
   }
@@ -68,7 +68,7 @@ export function How({ state, update, go }: ScreenProps) {
     go('calendar');
   };
 
-  const shortWeekday = (d: string) => ui.weekdays[new Date(`${d}T00:00`).getDay()].slice(0, 3);
+  const shortWeekday = (d: string) => ui.weekdays_short[fromIso(d).getDay()];
 
   return (
     <section>
@@ -84,7 +84,7 @@ export function How({ state, update, go }: ScreenProps) {
             aria-pressed={choice === i}
             onClick={() => pick(i)}
           >
-            {o.label} · {o.time}
+            {fill(c.chip_format, { label: o.label, time: o.time })}
           </button>
         ))}
         <button type="button" class="chip" aria-pressed={choice === 'other'} onClick={() => pick('other')}>

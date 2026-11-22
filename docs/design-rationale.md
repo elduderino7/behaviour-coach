@@ -71,3 +71,10 @@ Full spec: `docs/fast-start-v2.md`. Step 3 asks only "When could you…?"; the a
 | Day-4 check-in | "Try a different time" when it was hard | Wrong timing is the most common practical barrier | Koerting et al. 2013 (practical barriers, timing) |
 
 Implementation notes: on Android the calendar step uses Google Calendar links, an agreed exception to rule 2 (see CLAUDE.md), because Chrome doesn't open calendar apps through intent links. Public holidays aren't skipped (known limit).
+
+### 2026-11-22: discreet calendar text and a deviations log (decided by Tim)
+
+| Journey step | Feature | Barrier it addresses / ingredient it uses | Evidence (short) |
+| --- | --- | --- | --- |
+| Calendar | Entries look ordinary to outsiders but are clear to the parent (rule 8) | Stigma and fear of being judged or labelled when others see the phone or a shared calendar | Koerting et al. 2013 (stigma); Opie et al. 2024 (privacy lowers stigma barriers) |
+| Whole app | Every departure from the rules is recorded with its reason (`docs/deviations.md`, rule 9) | Trust: the promises can be checked (the code is open source) | Design principle |

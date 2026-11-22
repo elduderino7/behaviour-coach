@@ -225,7 +225,8 @@
       "list_and": " and ",
       "calendar_button": "Add {n} reminders",
       "skip_button": "Not now",
-      "privacy_note": "Calendar entries only say \"Coach\" and the activity, never anything about your child. Nothing is sent from this app."
+      "privacy_note": "Calendar entries are written to look ordinary to anyone else: \"Coach\" and a short activity, nothing about your child. Nothing is sent from this app.",
+      "chip_format": "{label} · {time}"
     },
     "calendar_android": {
       "title": "Add your reminders",
@@ -233,7 +234,7 @@
       "practice_button": "Add the {n} practice reminders",
       "checkin_button": "Add the check-in",
       "added": "Opened",
-      "google_note": "These buttons open Google Calendar. The reminder title and time go to Google in the link, as they would once saved in your calendar anyway.",
+      "google_note": "These buttons open Google Calendar. Only the short entry text and times go to Google in the link, as they would once saved in your calendar anyway.",
       "fallback_link": "Use a different calendar app? Download a calendar file instead",
       "continue_button": "Go to this week"
     },

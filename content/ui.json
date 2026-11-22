@@ -7,7 +7,7 @@
   "app_short_name": "Coach",
   "app_description": "Short weekly practice for parents and carers of children aged 4 to 16. Everything stays on your phone.",
   "help_button": "Help",
-  "back_button": "Back",
+  "back_button": "‹ Back",
   "draft_label": "Draft content",
   "screens": {
     "welcome": "Welcome",
@@ -36,5 +36,14 @@
     "Thursday",
     "Friday",
     "Saturday"
+  ],
+  "weekdays_short": [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "status": "draft",
   "locale": "en",
   "description": "Optional reminders without the app sending anything itself: a calendar file (.ics) built on the phone, or on Android a Google Calendar link the parent taps. The calendar app sends the reminders.",
@@ -27,7 +27,7 @@
       "alarm_minutes_before": 0
     }
   },
-  "privacy_note": "Calendar entries only say \"Coach\" and the activity, never anything about your child or your answers. They may sync to your calendar provider (for example Google or Apple).",
+  "privacy_note": "Calendar entries are written so they look ordinary to anyone else who sees them: they say \"Coach\" and a short activity, never anything about your child, your family or your answers. They may sync to your calendar provider (for example Google or Apple).",
   "after_download": {
     "ios": "Tap the downloaded file, then 'Add All'.",
     "android": "Open the downloaded file with your calendar app. If your calendar can't open it, set a weekly reminder yourself: we'll show you the day and time you picked.",

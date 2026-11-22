@@ -1,5 +1,5 @@
 {
-  "version": "0.3.1",
+  "version": "0.3.2",
   "status": "draft",
   "locale": "en",
   "review_note": "DRAFT written from the common components of evidence-based parent training (see docs/sources.md). Must be reviewed by a psychologist before any use beyond the private friend test.",
@@ -22,7 +22,7 @@
             "Don't teach, correct or ask lots of questions during this time.",
             "End on time with something warm: 'I loved playing with you.'"
           ],
-          "short_exercise": "Three times this week, give 3 minutes of play your child leads. Just describe what they're doing.",
+          "short_exercise": "Three times this week, give 5 minutes of play your child leads. Just describe what they're doing.",
           "when_it_doesnt_work": [
             "If your child misbehaves during special time, calmly end it for today and try again tomorrow.",
             "If they refuse at first, just start the activity next to them and describe what you're doing.",
@@ -51,7 +51,7 @@
           "question": "When could you do 5 minutes of special time?",
           "minutes": 5,
           "event_title": "Coach: 5 min special time",
-          "event_notes": "Let your child choose a calm activity. Follow their lead and describe what they do. No teaching or correcting.",
+          "event_notes": "They choose a quiet activity. Follow their lead and describe what they do. No teaching or correcting.",
           "full": {
             "minutes": 10,
             "event_title": "Coach: 10 min special time"
@@ -60,7 +60,7 @@
         "10-16": {
           "question": "When could you spend 10 minutes with your teen on something they choose?",
           "minutes": 10,
-          "event_title": "Coach: 10 min with your teen",
+          "event_title": "Coach: 10 min together",
           "event_notes": "Join something they pick. Listen more than you talk. No advice, school or chores."
         }
       }
@@ -118,13 +118,13 @@
           "question": "When is a good moment to catch your child doing something right?",
           "minutes": 5,
           "event_title": "Coach: catch one good moment",
-          "event_notes": "Watch for something your child does well, even partly. Say exactly what it was, right away."
+          "event_notes": "Watch for something done well, even partly. Say exactly what it was, right away."
         },
         "10-16": {
           "question": "When is a good moment to notice something your teen does well?",
           "minutes": 5,
           "event_title": "Coach: notice one good thing",
-          "event_notes": "Tell your teen one specific thing they did well, in one sentence. Then leave it there."
+          "event_notes": "Name one specific thing they did well, in one sentence. Then leave it there."
         }
       }
     },
@@ -302,14 +302,14 @@
         "4-9": {
           "question": "When could you practise the pause for one minute?",
           "minutes": 1,
-          "event_title": "Coach: 1 min pause practice",
-          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising when calm makes it easier when it counts."
+          "event_title": "Coach: 1 min pause",
+          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising at a quiet moment makes it easier later."
         },
         "10-16": {
           "question": "When could you practise the pause for one minute?",
           "minutes": 1,
-          "event_title": "Coach: 1 min pause practice",
-          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising when calm makes it easier when it counts."
+          "event_title": "Coach: 1 min pause",
+          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising at a quiet moment makes it easier later."
         }
       }
     }
@@ -324,5 +324,6 @@
     "Plain language, short sentences, one idea per sentence. Each exercise step fits on one phone line where possible.",
     "Normalise difficulty ('most parents find...'); never imply blame.",
     "No medical words (see CLAUDE.md rule 3)."
-  ]
+  ],
+  "calendar_text_rule": "Rule 8 in CLAUDE.md: event titles and notes must look ordinary to anyone else who sees them (lock screen, shared calendar, calendar provider) and still be clear to the parent. No words about children, family, behaviour, parenting, emotions or health. Checked by src/discretion.test.ts."
 }
