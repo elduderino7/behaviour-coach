@@ -275,3 +275,33 @@ h2 { font-size: 1.15rem; margin: 1.5rem 0 0.5rem; display: flex; align-items: ce
 
 .why { margin: 1.5rem 0; }
 .why summary { min-height: 44px; display: flex; align-items: center; color: var(--accent); font-weight: 600; cursor: pointer; }
+
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.other-time { margin-top: 12px; }
+.change { margin-top: 8px; }
+.change-label { margin: 0.5rem 0; font-weight: 600; }
+.chip.day { min-width: 64px; }
+.chip.number { min-width: 52px; font-weight: 600; }
+.summary .link-button { min-height: 36px; color: var(--soft-text); text-decoration: underline; }
+.summary .chip { background: var(--surface); }
+.summary .chip[aria-pressed='true'] { background: var(--primary); color: var(--primary-text); border-color: var(--primary); }
+
+.tick-box {
+  margin-top: 1rem;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+}
+.tick-box .note { margin: 0.5rem 0 0; }
+.tick {
+  width: 100%;
+  min-height: 52px;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: 600;
+}
+.tick[aria-pressed='true'] { background: var(--highlight); color: var(--highlight-text); border-color: var(--highlight-text); }

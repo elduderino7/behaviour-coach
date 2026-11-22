@@ -1,122 +1,162 @@
 import { useState } from 'preact/hooks';
-import { experience, fill, modules, reminders, ui } from '../content';
+import { experience, fill, ui } from '../content';
 import type { ScreenProps } from '../App';
-import { buildIcs, downloadIcs, fastStartEvents, isAndroid } from '../calendar';
-import { localDate } from '../state';
+import { buildIcs, downloadIcs, isAndroid, phoneTimeZone } from '../calendar';
+import { addDays, iso, makePlan, trialDays, type PracticePlan } from '../trial';
+import { checkinSentence, eventsFor, planSentence, trialContent } from '../planText';
 
+const c = experience.quick_start.how;
+type Choice = number | 'other' | null;
+
+/** Step 3: one question ("When could you…?"); the app plans the rest. */
 export function How({ state, update, go }: ScreenProps) {
-  const c = experience.quick_start.how;
-  const examples = experience.setup_week.practice_plan.when_examples;
-  const module = modules.modules.find((m) => m.id === state.moduleId) ?? modules.modules[0];
+  const today = new Date();
+  const [choice, setChoice] = useState<Choice>(null);
+  const [otherTime, setOtherTime] = useState('18:00');
+  const [otherLabel, setOtherLabel] = useState('');
+  const [changing, setChanging] = useState(false);
+  // Set once the parent edits days or time under "Change".
+  const [customDays, setCustomDays] = useState<string[] | null>(null);
+  const [customTime, setCustomTime] = useState<string | null>(null);
 
-  const initialWhen = state.when ?? examples[0];
-  const [when, setWhen] = useState(initialWhen);
-  const [custom, setCustom] = useState(examples.includes(initialWhen) ? '' : initialWhen);
-  const [usingCustom, setUsingCustom] = useState(!examples.includes(initialWhen));
-  const [time, setTime] = useState(state.time);
-  const [short, setShort] = useState(state.short);
+  const pick = (ch: Choice) => {
+    setChoice(ch);
+    setCustomDays(null);
+    setCustomTime(null);
+  };
 
-  const whenText = usingCustom ? custom.trim() || examples[0] : when;
-  const checkinTime = reminders.choices.find((r) => r.id === 'checkin')?.default_time ?? '20:30';
-  const weekday = ui.weekdays[new Date().getDay()];
+  let plan: PracticePlan | null = null;
+  if (choice !== null) {
+    const opt = choice === 'other' ? null : c.when_options[choice];
+    const rule = (opt?.days ?? 'any') as 'school' | 'any';
+    const time = customTime ?? opt?.time ?? otherTime;
+    const label = opt?.label ?? otherLabel.trim();
+    const days = customDays
+      ? customDays.map((d) => new Date(`${d}T00:00`))
+      : trialDays(today, rule);
+    plan = makePlan(days, time, label, customDays ? 'custom' : rule);
+  }
+
+  const next7 = Array.from({ length: 7 }, (_, i) => iso(addDays(today, i + 1)));
+  const toggleDay = (d: string) => {
+    if (!plan) return;
+    const current = customDays ?? plan.days;
+    const next = current.includes(d) ? current.filter((x) => x !== d) : [...current, d].sort();
+    if (next.length >= 2 && next.length <= 5) setCustomDays(next);
+  };
 
   const finish = (withReminders: boolean) => {
-    const patch = { when: whenText, time, short, startDate: localDate() };
+    if (!plan) return;
+    const base = {
+      trial: plan,
+      followUp: undefined,
+      phase: 'trial' as const,
+      short: true,
+      startDate: state.startDate ?? iso(today),
+    };
     if (!withReminders) {
-      update({ ...patch, reminders: 'none', onboarded: true });
+      update({ ...base, reminders: 'none', onboarded: true });
       go('this_week');
       return;
     }
     if (isAndroid()) {
-      update({ ...patch, reminders: 'android' });
+      update({ ...base, reminders: 'google' });
     } else {
-      const events = fastStartEvents(reminders, time);
-      downloadIcs(buildIcs(events, Intl.DateTimeFormat().resolvedOptions().timeZone));
-      update({ ...patch, reminders: 'file' });
+      downloadIcs(buildIcs(eventsFor({ ...state, ...base }, plan), phoneTimeZone()));
+      update({ ...base, reminders: 'file' });
     }
     go('calendar');
   };
 
+  const shortWeekday = (d: string) => ui.weekdays[new Date(`${d}T00:00`).getDay()].slice(0, 3);
+
   return (
     <section>
       <p class="progress">{c.progress}</p>
-      <h1>{c.title}</h1>
+      <h1>{trialContent(state).question}</h1>
 
-      <fieldset class="group">
-        <legend>{c.when_title}</legend>
-        <div class="chips">
-          {examples.map((e) => (
-            <button
-              key={e}
-              type="button"
-              class="chip"
-              aria-pressed={!usingCustom && when === e}
-              onClick={() => {
-                setWhen(e);
-                setUsingCustom(false);
-              }}
-            >
-              {e}
-            </button>
-          ))}
+      <div class="chips" role="group" aria-label={trialContent(state).question}>
+        {c.when_options.map((o, i) => (
           <button
+            key={o.label}
             type="button"
             class="chip"
-            aria-pressed={usingCustom}
-            onClick={() => setUsingCustom(true)}
+            aria-pressed={choice === i}
+            onClick={() => pick(i)}
           >
-            {c.when_other}
+            {o.label} · {o.time}
           </button>
-        </div>
-        {usingCustom && (
+        ))}
+        <button type="button" class="chip" aria-pressed={choice === 'other'} onClick={() => pick('other')}>
+          {c.when_other}
+        </button>
+      </div>
+
+      {choice === 'other' && (
+        <div class="other-time">
+          <label class="time-row">
+            <span>{c.when_other_time_label}</span>
+            <input
+              class="text-input time"
+              type="time"
+              value={otherTime}
+              onInput={(e) => setOtherTime((e.target as HTMLInputElement).value || otherTime)}
+            />
+          </label>
           <input
             class="text-input"
             type="text"
-            maxLength={60}
-            value={custom}
-            placeholder={c.when_other_placeholder}
-            aria-label={c.when_other}
-            onInput={(e) => setCustom((e.target as HTMLInputElement).value)}
+            maxLength={40}
+            value={otherLabel}
+            placeholder={c.when_other_label_placeholder}
+            aria-label={c.when_other_label_placeholder}
+            onInput={(e) => setOtherLabel((e.target as HTMLInputElement).value)}
           />
-        )}
-        <label class="time-row">
-          <span>{c.time_label}</span>
-          <input
-            class="text-input time"
-            type="time"
-            value={time}
-            onInput={(e) => setTime((e.target as HTMLInputElement).value || state.time)}
-          />
-        </label>
-      </fieldset>
-
-      <fieldset class="group">
-        <legend>{c.version_title}</legend>
-        <div class="choices two">
-          {c.version_options.map((o) => (
-            <button
-              key={o.value}
-              type="button"
-              class="choice"
-              aria-pressed={short === (o.value === 'short')}
-              onClick={() => setShort(o.value === 'short')}
-            >
-              <span class="card-title">{o.label}</span>
-              <span class="card-body">{o.note}</span>
-            </button>
-          ))}
         </div>
-      </fieldset>
+      )}
 
-      <div class="summary">
-        <p>{fill(c.plan_preview, { when: whenText.toLowerCase(), module_title: module.title })}</p>
-        <p class="note">{fill(c.checkin_line, { weekday, time: checkinTime })}</p>
-      </div>
+      {plan && (
+        <div class="summary" aria-live="polite">
+          <p>{planSentence(plan, today)}</p>
+          <p class="note">{checkinSentence(plan)}</p>
+          <button type="button" class="link-button" aria-expanded={changing} onClick={() => setChanging(!changing)}>
+            {changing ? c.change_done : c.change_link}
+          </button>
+          {changing && (
+            <div class="change">
+              <p class="change-label">{c.change_days_label}</p>
+              <div class="chips days">
+                {next7.map((d) => (
+                  <button
+                    key={d}
+                    type="button"
+                    class="chip day"
+                    aria-pressed={plan!.days.includes(d)}
+                    onClick={() => toggleDay(d)}
+                  >
+                    {d === next7[0] ? c.tomorrow : shortWeekday(d)}
+                  </button>
+                ))}
+              </div>
+              <p class="note small-gap">{c.change_days_hint}</p>
+              <label class="time-row">
+                <span>{c.change_time_label}</span>
+                <input
+                  class="text-input time"
+                  type="time"
+                  value={plan.time}
+                  onInput={(e) => setCustomTime((e.target as HTMLInputElement).value || plan!.time)}
+                />
+              </label>
+            </div>
+          )}
+        </div>
+      )}
 
-      <button type="button" class="primary" onClick={() => finish(true)}>
-        {c.calendar_button}
+      <button type="button" class="primary" disabled={!plan} onClick={() => finish(true)}>
+        {fill(c.calendar_button, { n: plan ? plan.days.length : 3 })}
       </button>
-      <button type="button" class="secondary" onClick={() => finish(false)}>
+      <button type="button" class="secondary" disabled={!plan} onClick={() => finish(false)}>
         {c.skip_button}
       </button>
       <p class="note small">{c.privacy_note}</p>

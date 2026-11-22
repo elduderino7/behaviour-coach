@@ -1,58 +1,38 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "status": "draft",
   "locale": "en",
-  "description": "Optional reminders without the app sending anything: the app builds a calendar file (.ics) on the phone and the parent adds it to their own calendar. The calendar app sends the reminders.",
+  "description": "Optional reminders without the app sending anything itself: a calendar file (.ics) built on the phone, or on Android a Google Calendar link the parent taps. The calendar app sends the reminders.",
   "offer_when": [
-    "On 'How you'll do it', the last step of the fast start (both reminders created with one button)",
+    "Fast start step 3: practice series (2–5 sessions) + day-4 check-in",
+    "Day-4 check-in, \"Keep going\": 4 more sessions + first weekly check-in",
     "Any time from Settings"
   ],
-  "intro": "Want a reminder? We can create calendar entries for you to add to your own calendar. Nothing is sent from this app.",
-  "choices": [
-    {
-      "id": "checkin",
-      "label": "Weekly check-in",
-      "default": true,
-      "ask": [
-        "day of week",
-        "time"
-      ],
-      "default_time": "20:30",
-      "note": "Fast start: same weekday as the start date, one week later, at default_time."
-    },
-    {
-      "id": "practice",
-      "label": "Daily practice time",
-      "default": true,
-      "ask": [
-        "time"
-      ],
-      "default_time": "18:00",
-      "note": "On by default in the fast start, at the time chosen on the How screen."
-    }
-  ],
   "events": {
-    "checkin": {
-      "title": "Coach: weekly check-in",
-      "rrule": "FREQ=WEEKLY;COUNT=4",
-      "duration_minutes": 10,
+    "trial_practice": {
+      "title_and_notes": "From modules.json > trial for the chosen module and age band. Repeat rule built from the days: FREQ=DAILY;COUNT=n if consecutive, otherwise FREQ=WEEKLY;BYDAY=...;COUNT=n.",
+      "notes_suffix": "Open the coach app for tips.",
       "alarm_minutes_before": 0
     },
-    "practice": {
-      "title": "Coach: practice time",
-      "rrule": "FREQ=DAILY;COUNT=28",
-      "duration_minutes": 10,
-      "alarm_minutes_before": 0,
-      "note": "Use the parent's practice-plan time as the default time if they gave a clock time."
+    "trial_checkin": {
+      "title": "Coach: how did it go? (2 min)",
+      "notes": "Open the coach app and tap \"How did it go?\".",
+      "duration_minutes": 5,
+      "alarm_minutes_before": 0
+    },
+    "weekly_checkin": {
+      "title": "Coach: weekly check-in (5 min)",
+      "notes": "Open the coach app and tap \"Weekly check-in\".",
+      "duration_minutes": 5,
+      "alarm_minutes_before": 0
     }
   },
-  "event_description": "Open your coach app.",
-  "privacy_note": "Calendar entries may sync to your calendar provider (for example Google or Apple), so they only say 'Coach' and never mention your child or your answers.",
+  "privacy_note": "Calendar entries only say \"Coach\" and the activity, never anything about your child or your answers. They may sync to your calendar provider (for example Google or Apple).",
   "after_download": {
     "ios": "Tap the downloaded file, then 'Add All'.",
     "android": "Open the downloaded file with your calendar app. If your calendar can't open it, set a weekly reminder yourself: we'll show you the day and time you picked.",
-    "update": "If you repeat a module, your plan moves back a week but calendar entries don't change. You can delete them and create new ones from Settings."
+    "update": "If the plan changes, old calendar entries stay. The parent can delete them in their calendar."
   },
   "tech_notes": "Generate the .ics as a Blob and download it with an <a download> link: no network request, so it works with connect-src 'none'. Use the phone's local time zone (TZID). Test on both iPhone (Safari and installed app) and Android before the friend launch.",
-  "android_method": "Chrome on Android: open the calendar app's 'new event' screen through an intent link, one per reminder, with title, start time and repeat filled in. Fallback: the .ics file."
+  "android_method": "Android: one Google Calendar link per entry (calendar.google.com, action=TEMPLATE with title, times, notes and repeat). Tapped by the parent, opens the Google Calendar app or website. Fallback: the .ics file. Intent links did not work (Chrome only opens apps that accept web links)."
 }

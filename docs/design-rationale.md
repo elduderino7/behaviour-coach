@@ -58,3 +58,16 @@ What is kept, and where it moved:
 | Practice partner | Share button on This week (to build) |
 
 What to watch in the friend test: whether fewer up-front questions makes the plan feel less relevant ("why this module" is no longer shown for week 1), and whether parents answer the deferred questions at check-in.
+
+### 2026-11-22: fast start v2, one decision and a 3-day trial (decided by Tim)
+
+Full spec: `docs/fast-start-v2.md`. Step 3 asks only "When could you…?"; the app plans the rest.
+
+| Journey step | Feature | Barrier it addresses / ingredient it uses | Evidence (short) |
+| --- | --- | --- | --- |
+| Fast start step 3 | One question ("When could you…?"), everything else defaulted | Overload at the point of least context; drop-off before the first try | Cognitive load and default effects (design principle); Gollwitzer & Sheeran 2006 (specific when-plan, d = .65) |
+| Fast start step 3 | 3-session trial from tomorrow, check-in on day 4 | Steep drop between first and second session | ParentApp: 97% → 46% from module 1 to 2; early second touchpoint |
+| Calendar | Event title says the activity; notes carry the steps | Practice is the weakest link; the cue arrives when it's needed | Chacko et al. 2016 (home practice ~41–48%); home practice predicts outcomes |
+| Day-4 check-in | "Try a different time" when it was hard | Wrong timing is the most common practical barrier | Koerting et al. 2013 (practical barriers, timing) |
+
+Implementation notes: on Android the calendar step uses Google Calendar links, an agreed exception to rule 2 (see CLAUDE.md), because Chrome doesn't open calendar apps through intent links. Public holidays aren't skipped (known limit).

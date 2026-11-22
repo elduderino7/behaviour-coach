@@ -162,5 +162,5 @@
       "ask_at": "week1_checkin"
     }
   ],
-  "ask_at_note": "Fast start: only 'age_band' is asked at the start (experience.json > quick_start). The other questions are asked later, at the first check-in, when routing first needs them."
+  "ask_at_note": "Fast start: only 'age_band' is asked at the start. The other questions are asked at the first weekly check-in (after the 3-day trial and 4 more days), when routing first needs them."
 }

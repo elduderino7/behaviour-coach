@@ -6,6 +6,7 @@ export const SCREENS = [
   'how',
   'calendar',
   'this_week',
+  'trial_checkin',
   'checkin',
   'welcome_back',
   'finished',

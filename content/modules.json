@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.3.1",
   "status": "draft",
   "locale": "en",
   "review_note": "DRAFT written from the common components of evidence-based parent training (see docs/sources.md). Must be reviewed by a psychologist before any use beyond the private friend test.",
@@ -44,6 +44,24 @@
             "Car journeys and cooking together are good for talking without eye contact.",
             "If it turns into an argument, end it kindly and try again another time."
           ]
+        }
+      },
+      "trial": {
+        "4-9": {
+          "question": "When could you do 5 minutes of special time?",
+          "minutes": 5,
+          "event_title": "Coach: 5 min special time",
+          "event_notes": "Let your child choose a calm activity. Follow their lead and describe what they do. No teaching or correcting.",
+          "full": {
+            "minutes": 10,
+            "event_title": "Coach: 10 min special time"
+          }
+        },
+        "10-16": {
+          "question": "When could you spend 10 minutes with your teen on something they choose?",
+          "minutes": 10,
+          "event_title": "Coach: 10 min with your teen",
+          "event_notes": "Join something they pick. Listen more than you talk. No advice, school or chores."
         }
       }
     },
@@ -93,6 +111,20 @@
             "A message or note can feel easier for some teens than face to face.",
             "Don't praise in front of friends unless you know they like it."
           ]
+        }
+      },
+      "trial": {
+        "4-9": {
+          "question": "When is a good moment to catch your child doing something right?",
+          "minutes": 5,
+          "event_title": "Coach: catch one good moment",
+          "event_notes": "Watch for something your child does well, even partly. Say exactly what it was, right away."
+        },
+        "10-16": {
+          "question": "When is a good moment to notice something your teen does well?",
+          "minutes": 5,
+          "event_title": "Coach: notice one good thing",
+          "event_notes": "Tell your teen one specific thing they did well, in one sentence. Then leave it there."
         }
       }
     },
@@ -264,6 +296,20 @@
             "Talk to someone you trust about how hard it is.",
             "If you often feel overwhelmed, hopeless or unsafe, tap Help."
           ]
+        }
+      },
+      "trial": {
+        "4-9": {
+          "question": "When could you practise the pause for one minute?",
+          "minutes": 1,
+          "event_title": "Coach: 1 min pause practice",
+          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising when calm makes it easier when it counts."
+        },
+        "10-16": {
+          "question": "When could you practise the pause for one minute?",
+          "minutes": 1,
+          "event_title": "Coach: 1 min pause practice",
+          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising when calm makes it easier when it counts."
         }
       }
     }

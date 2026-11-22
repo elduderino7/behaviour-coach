@@ -8,6 +8,7 @@ import { PickStrategy } from './screens/PickStrategy';
 import { How } from './screens/How';
 import { Calendar } from './screens/Calendar';
 import { ThisWeek } from './screens/ThisWeek';
+import { TrialCheckin } from './screens/TrialCheckin';
 import { Help } from './screens/Help';
 import { Placeholder } from './screens/Placeholder';
 
@@ -46,8 +47,8 @@ export function App() {
     });
   };
   const go = (next: Screen) => {
-    // Finishing the fast start starts a fresh history at This week.
-    if (next === 'this_week' && !state.onboarded) setStack(['this_week']);
+    // This week is home: going there always starts a fresh history.
+    if (next === 'this_week') setStack(['this_week']);
     else if (next !== screen) setStack([...stack, next]);
     window.scrollTo(0, 0);
   };
@@ -81,6 +82,7 @@ export function App() {
         {screen === 'how' && <How {...props} />}
         {screen === 'calendar' && <Calendar {...props} />}
         {screen === 'this_week' && <ThisWeek {...props} />}
+        {screen === 'trial_checkin' && <TrialCheckin {...props} />}
         {screen === 'help' && <Help />}
         {!BUILT.has(screen) && <Placeholder screen={screen} />}
       </main>
@@ -90,7 +92,7 @@ export function App() {
   );
 }
 
-const BUILT = new Set<Screen>(['welcome', 'age', 'pick_strategy', 'how', 'calendar', 'this_week', 'help']);
+const BUILT = new Set<Screen>(['welcome', 'age', 'pick_strategy', 'how', 'calendar', 'this_week', 'trial_checkin', 'help']);
 
 /** Temporary: lets us jump to any screen while the app is being built. */
 function TestMenu({ current, go }: { current: Screen; go: (s: Screen) => void }) {

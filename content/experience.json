@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "draft",
   "locale": "en",
   "description": "All the text for the journey around the modules: welcome, planning the week, the practice partner, the weekly loop, coming back after a gap, and finishing. See docs/design-rationale.md for why each part exists.",
@@ -87,7 +87,11 @@
     "show_short": "Show short version",
     "example_title": "Example",
     "not_working_title": "When it doesn't work",
-    "why_title": "Why this works"
+    "why_title": "Why this works",
+    "tick_done": "Practised today ✓",
+    "trial_days_display": "Practised on {n} of {total} days",
+    "checkin_button": "How did it go?",
+    "weekly_checkin_button": "Weekly check-in"
   },
   "after_checkin": {
     "adaptation": "Message and options from routing.json > weekly_adaptation.",
@@ -165,7 +169,7 @@
     "short_suffix": "' (short version)' when applicable"
   },
   "quick_start": {
-    "description": "The fast start: Welcome, one question (age), pick a strategy, how you will do it (with calendar entries). Everything else is asked later, when it is first needed.",
+    "description": "The fast start (docs/fast-start-v2.md): Welcome, Age, Pick a skill, then one question: when could you do it? The app plans a 3-session trial from tomorrow and a check-in the day after.",
     "age": {
       "progress": "Step 1 of 3",
       "other_message": "This coach is written for children aged 4 to 16. You're welcome to carry on with the closest age group: the ideas still apply to most families."
@@ -184,37 +188,53 @@
     },
     "how": {
       "progress": "Step 3 of 3",
-      "title": "How you'll do it",
-      "when_title": "When will you practise?",
-      "when_other": "Another time",
-      "when_other_placeholder": "For example: after breakfast",
-      "time_label": "Reminder time",
-      "version_title": "How much time do you have?",
-      "version_options": [
+      "when_options": [
         {
-          "value": "short",
-          "label": "About 5 minutes",
-          "note": "The short version"
+          "label": "After school pick-up",
+          "time": "17:00",
+          "days": "school"
         },
         {
-          "value": "full",
-          "label": "About 10 minutes",
-          "note": "The full version"
+          "label": "After homework",
+          "time": "18:30",
+          "days": "school"
+        },
+        {
+          "label": "Before dinner",
+          "time": "19:30",
+          "days": "any"
+        },
+        {
+          "label": "At bath time",
+          "time": "20:00",
+          "days": "any"
         }
       ],
-      "checkin_line": "Weekly check-in: {weekday} at {time}",
-      "plan_preview": "When {when}, I'll practise: {module_title}.",
-      "calendar_button": "Add to my calendar",
-      "skip_button": "Start without reminders",
-      "privacy_note": "Calendar entries only say 'Coach', never anything about your child. Nothing is sent from this app."
+      "when_other": "Another time…",
+      "when_other_label_placeholder": "For example: after breakfast (optional)",
+      "when_other_time_label": "Time",
+      "plan_line": "{days} {when}.",
+      "plan_line_custom": "{days} at {time}.",
+      "checkin_line": "We'll check in on {checkin_day}.",
+      "change_link": "Change",
+      "change_done": "Done",
+      "change_days_label": "Days",
+      "change_time_label": "Time",
+      "change_days_hint": "Pick 2 to 5 days.",
+      "tomorrow": "Tomorrow",
+      "list_and": " and ",
+      "calendar_button": "Add {n} reminders",
+      "skip_button": "Not now",
+      "privacy_note": "Calendar entries only say \"Coach\" and the activity, never anything about your child. Nothing is sent from this app."
     },
     "calendar_android": {
       "title": "Add your reminders",
-      "intro": "Your calendar opens with each reminder filled in. Tap Save, then come back here.",
-      "practice_button": "Add daily practice reminder",
-      "checkin_button": "Add weekly check-in",
+      "intro": "Each button opens Google Calendar with the reminder filled in. Tap Save, then come back here.",
+      "practice_button": "Add the {n} practice reminders",
+      "checkin_button": "Add the check-in",
       "added": "Opened",
-      "fallback_link": "Calendar didn't open? Download a calendar file instead",
+      "google_note": "These buttons open Google Calendar. The reminder title and time go to Google in the link, as they would once saved in your calendar anyway.",
+      "fallback_link": "Use a different calendar app? Download a calendar file instead",
       "continue_button": "Go to this week"
     },
     "calendar_file": {
@@ -223,5 +243,68 @@
       "download_again": "Download the file again",
       "continue_button": "Go to this week"
     }
+  },
+  "trial_checkin": {
+    "title": "How did it go?",
+    "days_question": "On how many of the {n} days did you do it?",
+    "feeling_question": "How did it go?",
+    "feeling_options": [
+      {
+        "value": "better",
+        "label": "Better than I expected"
+      },
+      {
+        "value": "ok",
+        "label": "OK"
+      },
+      {
+        "value": "hard",
+        "label": "Hard"
+      }
+    ],
+    "next_title": "What next?",
+    "next_good": {
+      "message": "Nice work. A few more tries make it feel natural.",
+      "options": [
+        {
+          "value": "keep_going",
+          "label": "Keep going: 4 more days, same time",
+          "recommended": true
+        },
+        {
+          "value": "change",
+          "label": "Change time or days"
+        },
+        {
+          "value": "other_skill",
+          "label": "Try a different skill"
+        }
+      ]
+    },
+    "next_hard": {
+      "message": "Finding the right moment is the hardest part. A different time often helps.",
+      "options": [
+        {
+          "value": "change",
+          "label": "Try a different time",
+          "recommended": true
+        },
+        {
+          "value": "keep_going",
+          "label": "Keep going as is"
+        },
+        {
+          "value": "other_skill",
+          "label": "Try a different skill"
+        }
+      ]
+    },
+    "recommended_label": "Suggested",
+    "full_version_offer": "Ready for the 10-minute version?",
+    "full_version_options": [
+      "Yes, try 10 minutes",
+      "Keep it short"
+    ],
+    "full_version_note": "Show full_version_offer only for special time, ages 4–9."
   }
 }
