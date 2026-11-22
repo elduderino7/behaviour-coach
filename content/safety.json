@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "locale": "en",
+  "region": "ES",
+  "title": "Help",
+  "intro": "If you or anyone in your family is in danger, or you're worried about a child's safety, please contact someone now. You don't have to handle this alone.",
+  "contacts": [
+    { "label": "Emergency", "number": "112", "note": "Immediate danger to anyone." },
+    { "label": "Suicide and emotional crisis line", "number": "024", "note": "Free, 24/7." },
+    { "label": "Fundación ANAR: family and schools line", "number": "600 50 51 52", "note": "Free advice for adults worried about a child or teenager. 24/7, confidential." },
+    { "label": "Fundación ANAR: children and teens", "number": "900 20 20 10", "note": "For children and teenagers themselves. Free, 24/7, confidential." }
+  ],
+  "professional_help": "If you're worried about your child's development, attention or behaviour, talk to your paediatrician (pediatra) or the school's counsellor. They can help you decide whether further support is needed.",
+  "about_this_app": "This coach shares general, evidence-informed parenting skills. It is not therapy, it doesn't diagnose anything, and it doesn't replace professional help.",
+  "exclusions": "This coach is not suitable if there is violence at home, if a child is at risk of harm, or if you are in crisis yourself. Please use the contacts above instead.",
+  "verify_note": "Numbers checked 21 Nov 2026 via web search. Re-check before each release."
+}

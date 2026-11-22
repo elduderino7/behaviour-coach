@@ -1,0 +1,223 @@
+{
+  "version": "0.3.0",
+  "status": "draft",
+  "programme_length_weeks": 4,
+  "description": "Rules that turn intake answers into a 4-module plan. Implement as a pure function plan(answers) -> { modules: string[], reasons: Record<string,string> } with unit tests for every rule.",
+  "rules": [
+    {
+      "id": "week1",
+      "rule": "Week 1 is always module m1_special_time.",
+      "reason": "Programmes that work start by building good moments together. Everything else is easier after that."
+    },
+    {
+      "id": "week2",
+      "rule": "If difficulties includes 'my_stress' OR shouting == 'often': week 2 is m6_staying_calm, and m2_praise follows in week 3. Otherwise week 2 is m2_praise.",
+      "reason_m6": "You told us stress or shouting is hard right now, so we start with tools for you.",
+      "reason_m2": "Noticing what goes right is one of the most effective skills to learn early."
+    },
+    {
+      "id": "focus_module",
+      "rule": "Next slot: if difficulties includes 'routines' or 'instructions' -> m3_instructions_routines. Else if it includes 'outbursts' or 'arguing' -> m4_rewards_consistency. Else -> m3_instructions_routines.",
+      "reason_m3": "Clear instructions and routines target the difficulty you picked.",
+      "reason_m4": "Rewards and consistency target the difficulty you picked."
+    },
+    {
+      "id": "fill",
+      "rule": "Fill remaining slots up to 4 in this order, skipping modules already in the plan: m2_praise, m6_staying_calm, m4_rewards_consistency, m3_instructions_routines, m5_calm_consequences.",
+      "reason": "Builds on the skills you've already practised."
+    },
+    {
+      "id": "consequences_gate",
+      "rule": "m5_calm_consequences may only appear after m3 or m4 in the plan. If the fill would place it earlier, move it later or leave it out of the 4-week plan.",
+      "reason": "Consequences work best once positive routines and rewards are in place."
+    },
+    {
+      "id": "after_plan",
+      "rule": "After week 4, all six modules are available to revisit in any order."
+    }
+  ],
+  "test_cases": [
+    {
+      "answers": {
+        "difficulties": [
+          "routines"
+        ],
+        "shouting": "rarely"
+      },
+      "expected": [
+        "m1_special_time",
+        "m2_praise",
+        "m3_instructions_routines",
+        "m6_staying_calm"
+      ]
+    },
+    {
+      "answers": {
+        "difficulties": [
+          "outbursts",
+          "my_stress"
+        ],
+        "shouting": "sometimes"
+      },
+      "expected": [
+        "m1_special_time",
+        "m6_staying_calm",
+        "m2_praise",
+        "m4_rewards_consistency"
+      ]
+    },
+    {
+      "answers": {
+        "difficulties": [
+          "arguing"
+        ],
+        "shouting": "often"
+      },
+      "expected": [
+        "m1_special_time",
+        "m6_staying_calm",
+        "m2_praise",
+        "m4_rewards_consistency"
+      ]
+    },
+    {
+      "answers": {
+        "difficulties": [
+          "little_good_time"
+        ],
+        "shouting": "rarely"
+      },
+      "expected": [
+        "m1_special_time",
+        "m2_praise",
+        "m3_instructions_routines",
+        "m6_staying_calm"
+      ]
+    }
+  ],
+  "weekly_adaptation": {
+    "description": "After each weekly check-in, suggest what to do next based on days_practised. Implement as a pure function nextStep(checkin, history) -> { recommended, options, message } with unit tests. The parent always chooses; never move them on or hold them back automatically.",
+    "options": {
+      "move_on": "Move on to the next module",
+      "repeat_short": "Repeat this module with the short version",
+      "repeat_full": "Repeat this module as it is"
+    },
+    "rules": [
+      {
+        "when": "days_practised <= 2",
+        "recommended": "repeat_short",
+        "options": [
+          "repeat_short",
+          "repeat_full",
+          "move_on"
+        ],
+        "message": "Busy week? That's completely normal. A shorter version of this week's exercise might fit better. You can also repeat it as it is, or move on."
+      },
+      {
+        "when": "days_practised 3-4",
+        "recommended": "move_on",
+        "options": [
+          "move_on",
+          "repeat_full",
+          "repeat_short"
+        ],
+        "message": "Good going. You can move on, or stay with this module for another week if it needs more practice. Both are fine."
+      },
+      {
+        "when": "days_practised >= 5",
+        "recommended": "move_on",
+        "options": [
+          "move_on",
+          "repeat_full"
+        ],
+        "message": "Great practice this week. Ready for the next module?"
+      },
+      {
+        "when": "the same module has already been repeated twice",
+        "recommended": "move_on",
+        "options": [
+          "move_on",
+          "repeat_short",
+          "repeat_full"
+        ],
+        "message": "You've spent a few weeks on this one. Moving on often helps, and you can come back to it any time."
+      }
+    ],
+    "effects": [
+      "repeat_short: same module next week, showing short_exercise instead of exercise (full version one tap away).",
+      "repeat_full: same module next week, unchanged.",
+      "Any repeat pushes the remaining plan back by one week. The programme can run longer than 4 weeks.",
+      "Store the choice and whether the short version was used with the next check-in."
+    ],
+    "test_cases": [
+      {
+        "days_practised": 1,
+        "repeats_so_far": 0,
+        "expected_recommended": "repeat_short"
+      },
+      {
+        "days_practised": 3,
+        "repeats_so_far": 0,
+        "expected_recommended": "move_on"
+      },
+      {
+        "days_practised": 6,
+        "repeats_so_far": 0,
+        "expected_recommended": "move_on"
+      },
+      {
+        "days_practised": 0,
+        "repeats_so_far": 2,
+        "expected_recommended": "move_on"
+      }
+    ],
+    "input": "days_practised is pre-filled from the parent's daily ticks for the module week; the parent can correct it in the check-in."
+  },
+  "personal_defaults": {
+    "description": "Uses the two intake answers that previously had no effect.",
+    "rules": [
+      {
+        "when": "intake.minutes == '5'",
+        "effect": "Each module opens in its short version, with 'Show full version' one tap away. The parent can switch at any time."
+      },
+      {
+        "when": "intake.co_parent == 'yes'",
+        "effect": "Show the module 4 co_parent_step, and pre-select 'The other parent or carer' as practice partner in Set up your week."
+      }
+    ]
+  },
+  "already_doing": {
+    "description": "From the 'I already do this' button on a module.",
+    "rules": [
+      {
+        "choice": "refresher",
+        "effect": "This week uses the short version. Check-in and adaptation as normal."
+      },
+      {
+        "choice": "skip",
+        "effect": "Mark the module as completed (skipped), make the next module available now, and show the 'Coming up next week' preview. Counts as done for the consequences gate."
+      },
+      {
+        "note": "Not offered for week 1 (m1_special_time) in the first plan: it is the low-effort start that later modules build on. Offered when revisiting."
+      }
+    ]
+  },
+  "test_cases_extra": [
+    {
+      "case": "minutes=5",
+      "expected": "m1 opens with short_exercise shown"
+    },
+    {
+      "case": "co_parent=yes, module m4",
+      "expected": "co_parent_step shown as last step; partner pre-selected"
+    },
+    {
+      "case": "already_doing skip on m3 (plan m1,m2,m3,m6)",
+      "expected": "m3 marked done; m6 available immediately"
+    },
+    {
+      "case": "already_doing on m1 in first plan",
+      "expected": "button not shown"
+    }
+  ]
+}

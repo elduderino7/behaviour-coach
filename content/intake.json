@@ -1,0 +1,157 @@
+{
+  "version": "0.3.0",
+  "status": "draft",
+  "locale": "en",
+  "intro": "A few quick questions so the coach can suggest where to start. Your answers stay on this phone.",
+  "questions": [
+    {
+      "id": "age_band",
+      "type": "single",
+      "text": "How old is the child you'd like to focus on?",
+      "options": [
+        {
+          "value": "4-9",
+          "label": "4 to 9"
+        },
+        {
+          "value": "10-16",
+          "label": "10 to 16"
+        },
+        {
+          "value": "other",
+          "label": "Younger or older"
+        }
+      ],
+      "notes": "If 'other': show a short message that the coach is designed for ages 4-16, then let the parent continue with the closest band or stop."
+    },
+    {
+      "id": "difficulties",
+      "type": "multi",
+      "max": 2,
+      "text": "What feels hardest right now? Pick up to two.",
+      "options": [
+        {
+          "value": "routines",
+          "label": "Getting through routines (mornings, bedtime, homework)"
+        },
+        {
+          "value": "instructions",
+          "label": "Getting my child to do what I ask"
+        },
+        {
+          "value": "outbursts",
+          "label": "Tantrums or outbursts"
+        },
+        {
+          "value": "arguing",
+          "label": "Arguing and saying no"
+        },
+        {
+          "value": "my_stress",
+          "label": "I get stressed or lose my temper"
+        },
+        {
+          "value": "little_good_time",
+          "label": "We have little good time together"
+        }
+      ]
+    },
+    {
+      "id": "good_moments",
+      "type": "single",
+      "text": "In a typical week, how often do you have a calm, enjoyable moment together?",
+      "options": [
+        {
+          "value": "rarely",
+          "label": "Rarely"
+        },
+        {
+          "value": "few",
+          "label": "A few times"
+        },
+        {
+          "value": "most_days",
+          "label": "Most days"
+        }
+      ]
+    },
+    {
+      "id": "shouting",
+      "type": "single",
+      "text": "How often do you end up shouting?",
+      "options": [
+        {
+          "value": "rarely",
+          "label": "Rarely"
+        },
+        {
+          "value": "sometimes",
+          "label": "Sometimes"
+        },
+        {
+          "value": "often",
+          "label": "Often"
+        }
+      ]
+    },
+    {
+      "id": "co_parent",
+      "type": "single",
+      "text": "Is another adult raising the child with you?",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ],
+      "used_for": "Module 4 co-parent step; pre-selects the other parent as practice partner."
+    },
+    {
+      "id": "minutes",
+      "type": "single",
+      "text": "Realistically, how many minutes a day can you give this?",
+      "options": [
+        {
+          "value": "5",
+          "label": "About 5"
+        },
+        {
+          "value": "10",
+          "label": "About 10"
+        },
+        {
+          "value": "15",
+          "label": "15 or more"
+        }
+      ],
+      "used_for": "If 'About 5', modules open in their short version."
+    },
+    {
+      "id": "learning_style",
+      "type": "single",
+      "text": "How would you like each week's module to start?",
+      "options": [
+        {
+          "value": "practical",
+          "label": "Straight to what to do"
+        },
+        {
+          "value": "learn",
+          "label": "A short explanation of why it works first"
+        }
+      ],
+      "notes": "Can be changed at any time in Settings or on the module screen. In 'practical' mode the explanation is one tap away."
+    },
+    {
+      "id": "goal",
+      "type": "text",
+      "maxLength": 120,
+      "text": "In your own words, what would you like to be different in a month?",
+      "placeholder": "For example: mornings without shouting"
+    }
+  ]
+}

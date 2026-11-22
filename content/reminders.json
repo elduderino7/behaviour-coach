@@ -1,0 +1,55 @@
+{
+  "version": "0.2.0",
+  "status": "draft",
+  "locale": "en",
+  "description": "Optional reminders without the app sending anything: the app builds a calendar file (.ics) on the phone and the parent adds it to their own calendar. The calendar app sends the reminders.",
+  "offer_when": [
+    "As the third step of 'Set up your week' after the Plan screen (weekly check-in pre-selected)",
+    "Any time from Settings"
+  ],
+  "intro": "Want a reminder? We can create calendar entries for you to add to your own calendar. Nothing is sent from this app.",
+  "choices": [
+    {
+      "id": "checkin",
+      "label": "Weekly check-in",
+      "default": true,
+      "ask": [
+        "day of week",
+        "time"
+      ],
+      "default_time": "20:30"
+    },
+    {
+      "id": "practice",
+      "label": "Daily practice time",
+      "default": false,
+      "ask": [
+        "time"
+      ],
+      "default_time": "18:00"
+    }
+  ],
+  "events": {
+    "checkin": {
+      "title": "Coach: weekly check-in",
+      "rrule": "FREQ=WEEKLY;COUNT=4",
+      "duration_minutes": 10,
+      "alarm_minutes_before": 0
+    },
+    "practice": {
+      "title": "Coach: practice time",
+      "rrule": "FREQ=DAILY;COUNT=28",
+      "duration_minutes": 10,
+      "alarm_minutes_before": 0,
+      "note": "Use the parent's practice-plan time as the default time if they gave a clock time."
+    }
+  },
+  "event_description": "Open your coach app.",
+  "privacy_note": "Calendar entries may sync to your calendar provider (for example Google or Apple), so they only say 'Coach' and never mention your child or your answers.",
+  "after_download": {
+    "ios": "Tap the downloaded file, then 'Add All'.",
+    "android": "Open the downloaded file with your calendar app. If your calendar can't open it, set a weekly reminder yourself: we'll show you the day and time you picked.",
+    "update": "If you repeat a module, your plan moves back a week but calendar entries don't change. You can delete them and create new ones from Settings."
+  },
+  "tech_notes": "Generate the .ics as a Blob and download it with an <a download> link: no network request, so it works with connect-src 'none'. Use the phone's local time zone (TZID). Test on both iPhone (Safari and installed app) and Android before the friend launch."
+}

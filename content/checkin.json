@@ -1,0 +1,59 @@
+{
+  "version": "0.3.0",
+  "status": "draft",
+  "locale": "en",
+  "intro": "A quick look back at your week. Only you see this.",
+  "questions": [
+    {
+      "id": "days_practised",
+      "type": "scale",
+      "min": 0,
+      "max": 7,
+      "text": "On how many days did you do this week's exercise?",
+      "prefill": "Number of days ticked during this module week; editable."
+    },
+    {
+      "id": "helpfulness",
+      "type": "single",
+      "text": "How helpful was it?",
+      "options": [
+        {
+          "value": 1,
+          "label": "Not at all"
+        },
+        {
+          "value": 2,
+          "label": "A little"
+        },
+        {
+          "value": 3,
+          "label": "Somewhat"
+        },
+        {
+          "value": 4,
+          "label": "Quite"
+        },
+        {
+          "value": 5,
+          "label": "Very"
+        }
+      ]
+    },
+    {
+      "id": "goal_progress",
+      "type": "scale",
+      "min": 0,
+      "max": 10,
+      "text": "How close are you to your goal?",
+      "show_goal_text": true
+    },
+    {
+      "id": "note",
+      "type": "text",
+      "optional": true,
+      "maxLength": 500,
+      "text": "Anything you want to remember? (optional, private)"
+    }
+  ],
+  "after_checkin": "1) Weekly adaptation message and options (routing.json > weekly_adaptation). 2) 'Coming up next week' preview with the option to share with the practice partner (experience.json > after_checkin). 3) Ask the practice-plan 'when' question for the next module, pre-filled."
+}

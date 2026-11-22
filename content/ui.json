@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "locale": "en",
+  "description": "Shared app text that isn't part of one step of the journey: app name, buttons and screen titles.",
+  "app_name": "Everyday Behaviour Coach",
+  "app_short_name": "Coach",
+  "app_description": "Short weekly practice for parents and carers of children aged 4 to 16. Everything stays on your phone.",
+  "help_button": "Help",
+  "back_button": "Back",
+  "draft_label": "Draft content",
+  "screens": {
+    "welcome": "Welcome",
+    "intake": "A few questions",
+    "plan": "Your plan",
+    "setup_week": "Set up your week",
+    "this_week": "This week",
+    "checkin": "Check-in",
+    "welcome_back": "Welcome back",
+    "finished": "Finished",
+    "progress": "Your progress",
+    "settings": "Settings",
+    "help": "Help"
+  },
+  "placeholder": "This screen is still being built.",
+  "dev_menu_title": "Test menu: jump to any screen (temporary)",
+  "call_label": "Call {number}"
+}

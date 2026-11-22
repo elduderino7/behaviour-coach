@@ -1,0 +1,282 @@
+{
+  "version": "0.3.0",
+  "status": "draft",
+  "locale": "en",
+  "review_note": "DRAFT written from the common components of evidence-based parent training (see docs/sources.md). Must be reviewed by a psychologist before any use beyond the private friend test.",
+  "footer_every_module": "Hitting, shouting and shaming make behaviour harder over time, even when they seem to work in the moment. If you're struggling, tap Help. You don't have to do this alone.",
+  "modules": [
+    {
+      "id": "m1_special_time",
+      "title": "Special time",
+      "summary": "A few minutes a day where your child gets your full, friendly attention.",
+      "teaser": "A few minutes a day of relaxed, child-led time together.",
+      "how_it_works": "Attention is the strongest reward a child gets. Regular warm attention that doesn't depend on behaviour reduces the need to get attention through misbehaviour, and makes your child more willing to cooperate when you ask for something.",
+      "bands": {
+        "4-9": {
+          "why": "Children who often hear 'no' and 'stop' can start to feel they're always in trouble. A few minutes a day of relaxed attention refills that account. It makes your child more willing to listen later, and it's the skill that proven parenting programmes teach first.",
+          "example": "Your child builds a tower. Instead of suggesting where the next block goes, you say: 'You're putting the red one on top. It's getting really tall!'",
+          "exercise": [
+            "Do it at the time you planned. Aim for the minutes you said you could manage.",
+            "Let your child choose a calm activity: drawing, blocks, a simple game. Avoid screens.",
+            "Follow their lead. Describe what they're doing out loud, like a friendly sports commentator.",
+            "Don't teach, correct or ask lots of questions during this time.",
+            "End on time with something warm: 'I loved playing with you.'"
+          ],
+          "short_exercise": "Three times this week, give 3 minutes of play your child leads. Just describe what they're doing.",
+          "when_it_doesnt_work": [
+            "If your child misbehaves during special time, calmly end it for today and try again tomorrow.",
+            "If they refuse at first, just start the activity next to them and describe what you're doing.",
+            "Missed a day? That's normal. Pick it up the next day."
+          ]
+        },
+        "10-16": {
+          "why": "Teenagers pull away from adults as part of growing up, but they still need to feel their parent is on their side. Regular, low-pressure time together keeps that connection. It also makes difficult conversations easier when they come.",
+          "example": "Your teen is playing a game. You ask: 'Can you show me how this works?' Then you mostly listen, even if the game isn't your thing.",
+          "exercise": [
+            "A few times this week, spend 10-15 minutes on something your teen chooses: a walk, cooking, a show, a game.",
+            "Ask them what they'd like to do. Let it be their pick.",
+            "Listen more than you talk. Leave advice, school and chores for another time.",
+            "If they share something, thank them for telling you, even if you'd react differently."
+          ],
+          "short_exercise": "Once or twice this week, join something your teen is already doing for 10 minutes, and mostly listen.",
+          "when_it_doesnt_work": [
+            "If they say no, don't push. Offer again another day, or join something they already do.",
+            "Car journeys and cooking together are good for talking without eye contact.",
+            "If it turns into an argument, end it kindly and try again another time."
+          ]
+        }
+      }
+    },
+    {
+      "id": "m2_praise",
+      "title": "Specific praise",
+      "summary": "Catch your child doing something right, and say exactly what it was.",
+      "teaser": "Catching your child doing something right, and saying exactly what it was.",
+      "how_it_works": "Behaviour followed by something pleasant becomes more likely; psychologists call this reinforcement. Specific praise is a quick, free reinforcer, and naming the behaviour tells your child exactly what to repeat.",
+      "variant_test": {
+        "id": "m2_order",
+        "variants": [
+          "example_first",
+          "explanation_first"
+        ],
+        "description": "Applies only in 'learn' mode, where the explanation is shown. example_first shows 'example' before 'why'; explanation_first shows 'why' before 'example'. Assign 50/50 on first open of module 2 (in any mode), store it, and always show the same one. Store the learning style with each check-in so the comparison can be limited to 'learn' users."
+      },
+      "bands": {
+        "4-9": {
+          "why": "Children repeat what gets attention. When most of our attention goes to problems, children learn that problems get noticed. Specific praise turns the spotlight around. Naming the exact behaviour ('you shared') teaches far more than 'good boy' or 'good girl'. A useful rule of thumb is five praises for every correction.",
+          "example": "Instead of 'Good job!', try: 'You put your shoes on the first time I asked. That helped us leave on time. Thank you!'",
+          "exercise": [
+            "Pick one or two behaviours you'd like to see more of, like getting dressed, playing gently or starting homework.",
+            "Watch for small moments when they happen, even partly.",
+            "Praise right away: say exactly what they did, and why it helped.",
+            "Aim for at least five specific praises a day. Count them for one day if it helps."
+          ],
+          "short_exercise": "Each day, give one specific praise: say exactly what your child did.",
+          "when_it_doesnt_work": [
+            "If it feels forced, start with small things that already go right.",
+            "Leave out 'but' ('You tidied up, but...'). It cancels the praise.",
+            "Some children get embarrassed. Try a smile, a thumbs up or a note."
+          ]
+        },
+        "10-16": {
+          "why": "Teenagers often hear about what's going wrong: from school, parents and themselves. Noticing effort and good choices, specifically and without a lecture, builds confidence and makes them more open to you. Praising effort ('you kept going') works better than praising talent ('you're so clever').",
+          "example": "'I noticed you started your homework without me asking. That's really mature.' Then leave it there, with no 'now if only you'd also...'.",
+          "exercise": [
+            "Each day this week, notice at least two things your teen does well, however small.",
+            "Tell them specifically and briefly, ideally in private.",
+            "Praise effort and choices, not just results.",
+            "Notice how they react, without expecting a big response."
+          ],
+          "short_exercise": "Each day, notice one thing your teen did well and tell them in one sentence.",
+          "when_it_doesnt_work": [
+            "If they roll their eyes, keep it short and keep going. It often lands more than it shows.",
+            "A message or note can feel easier for some teens than face to face.",
+            "Don't praise in front of friends unless you know they like it."
+          ]
+        }
+      }
+    },
+    {
+      "id": "m3_instructions_routines",
+      "title": "Clear instructions and routines",
+      "summary": "Make it easier to follow through: one clear step at a time, and predictable routines.",
+      "teaser": "Instructions that are easier to follow, and one routine that runs itself.",
+      "how_it_works": "Instructions usually fail at the start: the child didn't hear, didn't understand, or had too many steps to keep in mind. Getting attention first and giving one step at a time lowers that load, and routines turn daily decisions into habits nobody has to argue about.",
+      "bands": {
+        "4-9": {
+          "why": "Many children, especially those who find it hard to focus or sit still, miss instructions given from another room or several at once. Close, short, positive instructions make it much more likely they'll follow through. A routine they can see takes the arguing out of daily tasks.",
+          "example": "Instead of shouting 'Stop messing around and get ready!' from the kitchen, go over, get down to their level, and say: 'Time to put your shoes on, please.' Wait a few seconds, then praise when they start.",
+          "exercise": [
+            "Before giving an instruction, go to your child and get their attention (say their name, make eye contact).",
+            "Give one step at a time. Say what to do, not what not to do ('walk, please' instead of 'don't run').",
+            "Wait about five seconds in silence. Then praise as soon as they start.",
+            "Choose one routine (morning or bedtime). Draw or print it as 3-5 picture steps and stick it where it happens.",
+            "Go through the routine chart together each day this week, and praise each step."
+          ],
+          "short_exercise": "Practise one thing: before giving an instruction, go to your child and get their attention first.",
+          "when_it_doesnt_work": [
+            "If they don't respond, repeat the instruction once, calmly and close by. Avoid long explanations in the moment.",
+            "Turn instructions into a game or a race against a timer for younger children.",
+            "If the routine has too many steps, cut it down. Short and done beats long and fought over."
+          ]
+        },
+        "10-16": {
+          "why": "Teenagers push back more against rules they had no say in. Agreeing a few clear rules and routines together, and writing them down, means fewer daily battles. It also means less nagging: the agreement does the reminding.",
+          "example": "At a calm moment: 'Mornings have been stressful for both of us. What would make them easier?' Agree together: 'Phone charges in the kitchen overnight; bag packed the night before.'",
+          "exercise": [
+            "Pick a calm moment (not right after a conflict) to talk.",
+            "Agree two or three house rules or routines together. Keep them specific and doable.",
+            "Write them down where you can both see them.",
+            "When you need to remind them, keep it to one sentence and point to the agreement.",
+            "At the end of the week, check together: what worked, what should change?"
+          ],
+          "short_exercise": "Agree just one house rule together and write it down.",
+          "when_it_doesnt_work": [
+            "If they won't talk, suggest one rule yourself and ask what they'd change about it.",
+            "Keep the number of rules small. Too many get ignored.",
+            "If a rule keeps failing, it may be unclear or unrealistic. Adjust it together."
+          ]
+        }
+      }
+    },
+    {
+      "id": "m4_rewards_consistency",
+      "title": "Rewards and consistency",
+      "summary": "Make good behaviour pay off, and respond the same way each time.",
+      "teaser": "Making good behaviour pay off, the same way every time.",
+      "how_it_works": "Some children are moved less by distant rewards ('you'll be glad later') and need encouragement that is frequent and immediate. A chart or deal makes the reward visible and quick. Consistency makes the rule predictable, so testing it stops paying off.",
+      "bands": {
+        "4-9": {
+          "why": "Some children need more frequent and more immediate encouragement than others to keep going with things they find hard. A simple point or sticker chart makes progress visible and rewarding. It works best when every adult involved uses it the same way, every time.",
+          "example": "Target behaviour: 'Getting into pyjamas when asked'. Each time: a sticker straight away. Five stickers: choose a bedtime story or 10 extra minutes of play.",
+          "exercise": [
+            "Pick one or two target behaviours. Describe them positively and clearly ('teeth brushed before 8:00').",
+            "Make a simple chart together. Let your child decorate it.",
+            "Give the point or sticker immediately, with specific praise.",
+            "Agree small, quick rewards (activities and time together work well, and they're free)."
+          ],
+          "short_exercise": "Pick one behaviour and give a sticker or point straight away each time it happens.",
+          "when_it_doesnt_work": [
+            "If points are hard to earn, the chart stops working. Make the first few easy.",
+            "Never take points away once earned. Handle misbehaviour separately.",
+            "Change the reward every so often to keep it interesting."
+          ],
+          "co_parent_step": "If another adult cares for the child, agree on the chart together so you both use it the same way."
+        },
+        "10-16": {
+          "why": "Teenagers respond well to fair deals. Linking privileges they care about (screen time, outings, a lift to a friend's) to responsibilities they agreed to is clearer and calmer than arguing every time. Consistency is key: the same deal, applied the same way, by every adult.",
+          "example": "'When your homework is done and your room is tidy, you can have your phone until 9:30 on school nights.'",
+          "exercise": [
+            "Together, list 2-3 privileges your teen values and 2-3 responsibilities you'd like them to take on.",
+            "Agree a simple 'when you..., then you can...' deal, and write it down.",
+            "Apply it every time this week, calmly and without lectures.",
+            "Review together at the end of the week."
+          ],
+          "short_exercise": "Agree one 'when you..., then you can...' deal and stick to it all week.",
+          "when_it_doesnt_work": [
+            "If they argue about the deal, listen, then decide on one small change at most.",
+            "Avoid adding new conditions in the moment.",
+            "Notice and praise when they keep their side."
+          ],
+          "co_parent_step": "If another adult is involved, agree the deal with them first so you're consistent."
+        }
+      }
+    },
+    {
+      "id": "m5_calm_consequences",
+      "title": "Calm consequences",
+      "summary": "Respond to misbehaviour briefly and calmly, so it doesn't take over.",
+      "teaser": "Short, calm responses that stop misbehaviour taking over.",
+      "how_it_works": "A big reaction can accidentally reward the behaviour you want less of. Calm, brief, predictable consequences take that reward away without harming the relationship. They only work when there is plenty of positive attention at other times, so the contrast is clear.",
+      "bands": {
+        "4-9": {
+          "why": "Children often keep doing small annoying things because they get a big reaction. Ignoring minor attention-seeking on purpose takes the reward away. For a few serious behaviours, a short, calm time-out gives everyone a pause. Both work best when your child gets plenty of positive attention at other times, so do keep up special time and praise.",
+          "example": "Your child whines for sweets. You calmly look away and carry on. When they stop and ask nicely, you turn back: 'Thank you for asking nicely. Not today, but we can have fruit.'",
+          "exercise": [
+            "List minor behaviours to ignore on purpose (whining, sulking, rude noises) and 1-2 serious ones for time-out (hitting, breaking things).",
+            "Ignoring: look away, stay calm, say nothing. Give attention again the moment the behaviour stops.",
+            "Time-out: a boring but safe spot. Give one calm warning, then a few minutes (about one minute per year of age, up to five).",
+            "After time-out, no lecture. Move on, and praise the next good thing you see.",
+            "Explain the plan to your child at a calm time before you start."
+          ],
+          "short_exercise": "Pick one minor behaviour (like whining) and calmly ignore it every time. Give attention again the moment it stops.",
+          "when_it_doesnt_work": [
+            "Ignored behaviour often gets worse for a few days before it improves. That's a sign it's working. Stay steady.",
+            "Never ignore anything dangerous.",
+            "If you feel too angry to stay calm, use your own pause first (module 'Staying calm yourself')."
+          ]
+        },
+        "10-16": {
+          "why": "Harsh or surprise punishments tend to create resentment and secrecy in teenagers. Consequences that are announced in advance, linked to the rule, short and calmly applied are seen as fair, and they work better.",
+          "example": "The agreed rule is 'home by 9'. They come back at 9:45. Calmly: 'We agreed 9. So tomorrow you stay in, as we said.' No shouting, no extra punishments.",
+          "exercise": [
+            "For your agreed rules, agree the consequence in advance, together if possible.",
+            "Keep consequences short (a day, not a month) and related to the rule.",
+            "Apply them calmly and briefly. One sentence is enough.",
+            "Afterwards, give a clean slate. Don't keep bringing it up."
+          ],
+          "short_exercise": "For one rule you already have, agree the consequence with your teen in advance.",
+          "when_it_doesnt_work": [
+            "If a consequence leads to a big argument, take a pause and come back to it later.",
+            "If you're adding consequences on top of consequences, step back: aim for fewer, clearer rules.",
+            "Keep up special time. The relationship is what makes consequences work."
+          ]
+        }
+      }
+    },
+    {
+      "id": "m6_staying_calm",
+      "title": "Staying calm yourself",
+      "summary": "Tools for the heated moments, and for looking after yourself.",
+      "teaser": "A simple pause for heated moments, and a bit of care for yourself.",
+      "how_it_works": "When we're angry, the thinking part of the brain gets less say and we react on autopilot. A short pause gives it time to catch up. Children also copy how we handle strong feelings, so your calm helps them learn theirs.",
+      "bands": {
+        "4-9": {
+          "why": "Parenting a child whose behaviour is hard is exhausting, and everyone loses their temper sometimes. Children learn how to handle feelings by watching us. A simple pause routine helps you respond the way you want to, and makes the other skills much easier to use.",
+          "example": "Your child throws a toy across the room. You feel the anger rising. You stop, breathe out slowly three times, then say calmly: 'Toys are not for throwing. Please pick it up.'",
+          "exercise": [
+            "Notice your early warning signs (tight jaw, louder voice, hot face).",
+            "Practise a pause: stop, breathe out slowly three times, then decide what to do.",
+            "Write down your two most common trigger moments this week, without judging yourself.",
+            "Do one small thing for yourself each day, even five minutes.",
+            "If you lose your temper, repair it: 'I shouted, and I'm sorry. I'm working on it.'"
+          ],
+          "short_exercise": "Once a day, even when calm, practise the pause: stop and breathe out slowly three times.",
+          "when_it_doesnt_work": [
+            "If you can't pause in the moment, make sure everyone's safe, then step away for a minute.",
+            "Talk to someone you trust about how hard it is.",
+            "If you often feel overwhelmed, hopeless or unsafe, tap Help."
+          ]
+        },
+        "10-16": {
+          "why": "Arguments with teenagers can escalate fast, and both sides say things they regret. Staying calm doesn't mean giving in. It means you choose your response. Repairing after a conflict teaches your teen how to handle disagreements, and keeps the relationship strong.",
+          "example": "Your teen slams a door and shouts. You say: 'I can see you're really angry. I'm going to take a few minutes, and then we can talk.' Later you come back and listen first.",
+          "exercise": [
+            "Notice your early warning signs in arguments.",
+            "Practise a pause: name it ('I need a few minutes'), step away, breathe, then come back.",
+            "After a conflict, repair within a day: acknowledge your part and listen to theirs.",
+            "Do one small thing for yourself each day.",
+            "Write down your two most common trigger moments this week."
+          ],
+          "short_exercise": "Once a day, even when calm, practise the pause: stop and breathe out slowly three times.",
+          "when_it_doesnt_work": [
+            "If your teen follows you when you step away, say calmly that you'll talk in five minutes.",
+            "Talk to someone you trust about how hard it is.",
+            "If you often feel overwhelmed, hopeless or unsafe, tap Help."
+          ]
+        }
+      }
+    }
+  ],
+  "display_modes": {
+    "practical": "Summary, then this week's exercise (or the short version), then the example and 'when it doesn't work'. 'Why this works' (how_it_works + why) is collapsed behind one tap.",
+    "learn": "Summary, then how_it_works, then why and example (order set by the module 2 variant test in module 2), then the exercise and 'when it doesn't work'.",
+    "co_parent_step": "Show bands[...].co_parent_step as the last exercise step only if intake co_parent == 'yes'."
+  },
+  "writing_rules": [
+    "Say 'parent' or 'carer', never assume a mother. Rotate examples between dads, mums and other carers when new examples are written.",
+    "Plain language, short sentences, one idea per sentence. Each exercise step fits on one phone line where possible.",
+    "Normalise difficulty ('most parents find...'); never imply blame.",
+    "No medical words (see CLAUDE.md rule 3)."
+  ]
+}

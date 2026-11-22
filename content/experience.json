@@ -1,0 +1,159 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "locale": "en",
+  "description": "All the text for the journey around the modules: welcome, planning the week, the practice partner, the weekly loop, coming back after a gap, and finishing. See docs/design-rationale.md for why each part exists.",
+  "welcome": {
+    "title": "A coach for everyday family life",
+    "body": [
+      "Most parents have days when nothing seems to work. That's normal, and it doesn't mean anything is wrong with your parenting.",
+      "This coach shares a few practical skills, one week at a time, that help many families feel calmer. It's for any parent or carer of a child aged 4 to 16.",
+      "Everything you enter stays on this phone. Nobody else sees it, including us."
+    ],
+    "not_this": "This is not therapy and doesn't diagnose anything. If there is violence at home, a child at risk of harm, or you're in crisis, please use Help instead.",
+    "cta": "Let's start"
+  },
+  "plan_screen": {
+    "intro": "Here's your plan for the next four weeks. You can always revisit any module later.",
+    "week1_framing": "Week 1 is small on purpose. A few good minutes together makes everything else easier."
+  },
+  "setup_week": {
+    "intro": "Three quick choices to make this week easier. All optional.",
+    "practice_plan": {
+      "title": "When will you practise?",
+      "why": "Deciding in advance exactly when you'll do something makes it much more likely you'll actually do it, especially on busy days.",
+      "format": "If-then plan, shown back to the parent as: 'When {when}, I'll practise: {module_title}.' Ask again at the start of each new module, pre-filled with last week's answer.",
+      "when_label": "When",
+      "when_examples": [
+        "After school pick-up",
+        "Before dinner",
+        "At bath time",
+        "After homework"
+      ],
+      "where_label": "Where (optional)",
+      "home_display": "When {when}, I'll practise: {module_title}."
+    },
+    "partner": {
+      "title": "Who could do this with you?",
+      "why": "Having someone in on it, even just one person, helps parents keep going.",
+      "options": [
+        {
+          "value": "co_parent",
+          "label": "The other parent or carer",
+          "default_if": "intake.co_parent == 'yes'"
+        },
+        {
+          "value": "friend",
+          "label": "A friend or family member"
+        },
+        {
+          "value": "none",
+          "label": "Not now"
+        }
+      ],
+      "templates": {
+        "co_parent": "This week I'd like us to try something together: {module_title}. {short_exercise} Could we both try it, and talk on {checkin_day} about how it went?",
+        "friend": "I'm trying a parenting coach this month. This week's practice: {module_title}. {short_exercise} Could you ask me on {checkin_day} how it went?"
+      },
+      "share_note": "You choose what to send and who to send it to. The app sends nothing itself.",
+      "share_button": "Share this week"
+    },
+    "reminders": "See content/reminders.json. Weekly check-in is pre-selected; daily practice reminder is off by default.",
+    "skip": "Skip for now. You can set these up later in Settings."
+  },
+  "this_week": {
+    "practice_title": "Your practice this week",
+    "tick_label": "I practised today",
+    "tick_note": "Tick the days you practise. It's just for you, and it fills in your check-in. Missing days is normal.",
+    "days_display": "Practised on {n} days this week",
+    "already_doing": {
+      "button": "I already do this",
+      "question": "Great. What would help most?",
+      "options": [
+        {
+          "value": "refresher",
+          "label": "A quick refresher this week (short version)"
+        },
+        {
+          "value": "skip",
+          "label": "Move on to the next module now"
+        }
+      ]
+    }
+  },
+  "after_checkin": {
+    "adaptation": "Message and options from routing.json > weekly_adaptation.",
+    "preview_title": "Coming up next week",
+    "preview_body": "{next_module_title}: {next_module_teaser}",
+    "partner_prompt": "Share next week with {partner_label}?",
+    "repeat_preview": "Next week: {module_title} again{short_suffix}. Same skill, more practice."
+  },
+  "welcome_back": {
+    "trigger": "On opening the app when the check-in has been due for more than 7 days, or the app hasn't been opened for 10 days or more.",
+    "title": "Welcome back",
+    "body": "Life gets busy. Pick up wherever suits you.",
+    "options": [
+      {
+        "value": "continue",
+        "label": "Carry on with {module_title}"
+      },
+      {
+        "value": "short",
+        "label": "Restart this week with the short version"
+      },
+      {
+        "value": "revisit",
+        "label": "Look back at a module I've done"
+      }
+    ],
+    "never_show": "Never show missed weeks, overdue counts or 'you're behind'. The plan simply resumes from where the parent is."
+  },
+  "completion": {
+    "trigger": "After the check-in of the last module in the plan.",
+    "title": "You've finished your four weeks",
+    "body": "That's a real achievement. The skills keep working as you keep using them. All six modules are here whenever you want them.",
+    "reflection_prompt": "What helped most? (private note, optional)",
+    "options": [
+      {
+        "value": "revisit",
+        "label": "Revisit a module"
+      },
+      {
+        "value": "remaining",
+        "label": "Try a module I haven't done"
+      },
+      {
+        "value": "done",
+        "label": "I'm done for now"
+      }
+    ],
+    "note": "Finishing counts as success. Don't suggest restarting or keep prompting after 'I'm done for now'."
+  },
+  "usage_log": {
+    "description": "A local, private event log so testers can choose to share how they used the app (via export). Never sent automatically.",
+    "events": [
+      "welcome_completed",
+      "intake_completed",
+      "setup_week_completed (with which of plan/partner/reminders were set)",
+      "module_opened (module id, week, mode, short)",
+      "practice_ticked (date)",
+      "already_doing (choice)",
+      "partner_shared (week)",
+      "checkin_completed (week)",
+      "adaptation_choice",
+      "welcome_back_shown (choice)",
+      "programme_completed",
+      "app_opened (date only)"
+    ],
+    "summary_view": "Settings > 'My usage summary': a plain-language list (weeks started, check-ins done, days practised per week, partner shares). Included in the export file."
+  },
+  "placeholders": {
+    "module_title": "modules.json title",
+    "short_exercise": "modules.json bands[age].short_exercise (always used in shared messages, so they stay short)",
+    "when": "the parent's practice-plan answer",
+    "checkin_day": "weekday of the parent's next check-in",
+    "partner_label": "'the other parent' / 'your friend'",
+    "next_module_title / next_module_teaser": "from modules.json",
+    "short_suffix": "' (short version)' when applicable"
+  }
+}
