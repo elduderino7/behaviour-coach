@@ -1,4 +1,4 @@
-# Generates the PNG app icons in public/icons (same design as favicon.svg).
+﻿# Generates the PNG app icons in public/icons (same design as favicon.svg).
 # Run with: npm run icons
 Add-Type -AssemblyName System.Drawing
 $out = Join-Path $PSScriptRoot '..\public\icons'
@@ -9,9 +9,9 @@ function New-Icon([int]$size, [string]$name) {
   $g = [System.Drawing.Graphics]::FromImage($bmp)
   $g.SmoothingMode = 'AntiAlias'
   $s = $size / 64.0
-  $green = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(47, 111, 98))
-  $cream = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(251, 248, 243))
-  $sand  = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(242, 200, 143))
+  $green = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(188, 211, 224))
+  $cream = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(255, 255, 255))
+  $sand  = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(59, 102, 128))
   # Full-bleed background so the icon also works as a maskable icon.
   $g.FillRectangle($green, 0, 0, $size, $size)
   $g.FillEllipse($cream, 17 * $s, 18 * $s, 14 * $s, 14 * $s)

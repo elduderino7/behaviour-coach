@@ -1,13 +1,21 @@
+/*
+  Calm palette: muted light blue (low saturation, high lightness) as the main
+  colour, a deeper blue of the same hue for links and focus, and a soft sand
+  for small highlights so the page doesn't feel cold. Text is never pure black
+  or pure white. All text pairs meet WCAG AA (most AAA).
+*/
 :root {
-  --bg: #fbf8f3;
+  --bg: #f4f7f9;          /* off-white with a hint of blue */
   --surface: #ffffff;
-  --text: #1f2a28;
-  --muted: #4d5a57;
-  --accent: #2f6f62;
-  --accent-text: #ffffff;
-  --border: #ddd6cb;
-  --draft: #8a5a00;
-  --draft-bg: #fff1d6;
+  --soft: #dce8ef;        /* pale blue band, selected states */
+  --primary: #bcd3e0;     /* main colour: muted light blue */
+  --primary-text: #16303f;/* 8.9:1 on primary */
+  --text: #1e2e38;        /* 13:1 on bg */
+  --muted: #4f6270;       /* 5.9:1 on bg */
+  --accent: #3b6680;      /* links, outlines, focus: 5.7:1 on bg */
+  --border: #c9d6de;
+  --draft: #7a5418;
+  --draft-bg: #f6e7cf;    /* soft sand */
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: 18px;
   line-height: 1.5;
@@ -18,15 +26,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #161b1a;
-    --surface: #1f2625;
-    --text: #ecebe7;
-    --muted: #b6bcb9;
-    --accent: #7cc4b2;
-    --accent-text: #0f1a17;
-    --border: #3a4442;
-    --draft: #ffd38a;
-    --draft-bg: #3b2f18;
+    /* Deep blue-grey instead of pure black (less glare and halation). */
+    --bg: #131b21;
+    --surface: #1b262e;
+    --soft: #22323d;
+    --primary: #9dbfd3;     /* same hue, lighter so it doesn't glow */
+    --primary-text: #10222d;/* 8.4:1 */
+    --text: #e3eaef;        /* 14:1 */
+    --muted: #a9b8c3;       /* 8.6:1 */
+    --accent: #9dbfd3;      /* 7.9:1 on surface */
+    --border: #34444f;
+    --draft: #ebc98f;
+    --draft-bg: #3a2f1e;
   }
 }
 
@@ -70,10 +81,12 @@ button:focus-visible, a:focus-visible, summary:focus-visible {
   width: 100%;
   min-height: 52px;
   margin-top: 1.5rem;
-  border: 0;
+  /* Light fill + deeper outline: keeps the calm colour while the button edge
+     still stands out clearly from the page (3:1+ for the outline). */
+  border: 2px solid var(--accent);
   border-radius: 12px;
-  background: var(--accent);
-  color: var(--accent-text);
+  background: var(--primary);
+  color: var(--primary-text);
   font-weight: 600;
 }
 

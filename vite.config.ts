@@ -1,4 +1,4 @@
-/// <reference types="vitest/config" />
+﻿/// <reference types="vitest/config" />
 import { defineConfig, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import ui from './content/ui.json' with { type: 'json' };
@@ -53,8 +53,8 @@ export default defineConfig(({ command, isPreview }) => ({
         scope: '.',
         display: 'standalone',
         orientation: 'portrait',
-        background_color: '#fbf8f3',
-        theme_color: '#2f6f62',
+        background_color: '#f4f7f9',
+        theme_color: '#dce8ef',
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
