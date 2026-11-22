@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft",
   "locale": "en",
   "description": "All the text for the journey around the modules: welcome, planning the week, the practice partner, the weekly loop, coming back after a gap, and finishing. See docs/design-rationale.md for why each part exists.",
@@ -79,7 +79,15 @@
           "label": "Move on to the next module now"
         }
       ]
-    }
+    },
+    "plan_line": "When {when}, I'll practise: {module_title}.",
+    "short_label": "Short version",
+    "full_label": "Full version",
+    "show_full": "Show full version",
+    "show_short": "Show short version",
+    "example_title": "Example",
+    "not_working_title": "When it doesn't work",
+    "why_title": "Why this works"
   },
   "after_checkin": {
     "adaptation": "Message and options from routing.json > weekly_adaptation.",
@@ -155,5 +163,65 @@
     "partner_label": "'the other parent' / 'your friend'",
     "next_module_title / next_module_teaser": "from modules.json",
     "short_suffix": "' (short version)' when applicable"
+  },
+  "quick_start": {
+    "description": "The fast start: Welcome, one question (age), pick a strategy, how you will do it (with calendar entries). Everything else is asked later, when it is first needed.",
+    "age": {
+      "progress": "Step 1 of 3",
+      "other_message": "This coach is written for children aged 4 to 16. You're welcome to carry on with the closest age group: the ideas still apply to most families."
+    },
+    "pick_strategy": {
+      "progress": "Step 2 of 3",
+      "title": "Pick a skill to practise this week",
+      "intro": "Each one takes a few minutes a day. You can try the others later.",
+      "options": [
+        "m1_special_time",
+        "m2_praise",
+        "m6_staying_calm"
+      ],
+      "recommended": "m1_special_time",
+      "recommended_label": "Recommended start"
+    },
+    "how": {
+      "progress": "Step 3 of 3",
+      "title": "How you'll do it",
+      "when_title": "When will you practise?",
+      "when_other": "Another time",
+      "when_other_placeholder": "For example: after breakfast",
+      "time_label": "Reminder time",
+      "version_title": "How much time do you have?",
+      "version_options": [
+        {
+          "value": "short",
+          "label": "About 5 minutes",
+          "note": "The short version"
+        },
+        {
+          "value": "full",
+          "label": "About 10 minutes",
+          "note": "The full version"
+        }
+      ],
+      "checkin_line": "Weekly check-in: {weekday} at {time}",
+      "plan_preview": "When {when}, I'll practise: {module_title}.",
+      "calendar_button": "Add to my calendar",
+      "skip_button": "Start without reminders",
+      "privacy_note": "Calendar entries only say 'Coach', never anything about your child. Nothing is sent from this app."
+    },
+    "calendar_android": {
+      "title": "Add your reminders",
+      "intro": "Your calendar opens with each reminder filled in. Tap Save, then come back here.",
+      "practice_button": "Add daily practice reminder",
+      "checkin_button": "Add weekly check-in",
+      "added": "Opened",
+      "fallback_link": "Calendar didn't open? Download a calendar file instead",
+      "continue_button": "Go to this week"
+    },
+    "calendar_file": {
+      "title": "Add your reminders",
+      "intro": "Open the downloaded file and choose \"Add All\" to put both reminders in your calendar.",
+      "download_again": "Download the file again",
+      "continue_button": "Go to this week"
+    }
   }
 }

@@ -25,18 +25,19 @@ Every feature exists for a reason documented in `docs/design-rationale.md`. Don'
 One coherent rhythm for the parent: **about 5 minutes once a week** (check in, see next week, plan, share) and **a few minutes most days** (practise with the child, tick the day). The app sends nothing and prompts nothing beyond the calendar entries the parent chose.
 
 1. **Welcome** (`experience.json > welcome`): normalising, non-judgemental, for any parent or carer; what it is and isn't; data stays on the phone; exclusions lead to Help.
-2. **Intake** (`intake.json`): 8 questions, one per screen, back button, progress dots.
-3. **Your plan** (`routing.json > rules`): 4 modules with a "why this module" line each, plus the week 1 framing.
-4. **Set up your week** (`experience.json > setup_week`): one screen with three optional parts, all skippable:
-   - **When:** an if-then practice plan, shown back as "When {when}, I'll practise: {module}".
-   - **Who:** practice partner (pre-selected "the other parent" if intake co_parent = yes) and a Share button using the Web Share API with the template text (fallback: copy to clipboard).
-   - **Reminders:** calendar file (`reminders.json`), weekly check-in pre-selected.
-5. **This week** (home screen): the practice plan line at the top, the current module in the parent's learning style (`modules.json > display_modes`), full or short exercise, a daily "I practised today" tick with "Practised on N days this week" (no streaks), and the "I already do this" button (`routing.json > already_doing`).
-6. **Check-in** (`checkin.json`): days practised pre-filled from ticks; then the weekly adaptation (`routing.json > weekly_adaptation`), then "Coming up next week" with an option to share with the partner, then the practice-plan "when" for the next module, pre-filled.
-7. **Welcome back** (`experience.json > welcome_back`): shown instead of the home screen after a gap. Never mentions missed weeks.
-8. **Finished** (`experience.json > completion`): after the last module's check-in. Private reflection note; all modules stay available; no pressure to restart.
-9. **Progress**: the parent's own check-ins over the weeks (simple SVG chart, no chart library) plus their goal.
-10. **Settings**: learning style, practice plan, partner, reminders, "My usage summary", export / import / delete everything, about and privacy.
+2. **Fast start** (`experience.json > quick_start`, decided by Tim on 2026-11-22: get from opening the app to a planned first week as quickly as possible). Three steps after Welcome:
+   - **Age** (step 1 of 3): the only intake question asked up front (`intake.json`, `ask_at: start`). "Younger or older" shows a gentle message, then the two bands.
+   - **Pick a skill** (step 2 of 3): Special time (marked "Recommended start"), Specific praise or Staying calm yourself. Tapping one moves on.
+   - **How you'll do it** (step 3 of 3): the if-then "when" (chips or own text), reminder time, short or full version, a preview of the plan line and the check-in day, then **Add to my calendar** (creates daily practice + weekly check-in) or **Start without reminders**.
+   - **Add reminders**: on Android, one intent link per reminder opens the calendar's pre-filled "new event" screen (fallback: .ics file). Elsewhere the .ics file downloads straight away.
+   - The other intake questions (`ask_at: week1_checkin`) are asked at the first check-in, when routing first needs them. The practice partner moves to a Share button on This week. Until then: practical learning style, short/full as chosen.
+   - After the fast start, the app always opens on This week. The temporary test menu only appears from the second time the app is opened, never during the first run.
+3. **This week** (home screen): the practice plan line at the top, the current module in the parent's learning style (`modules.json > display_modes`), full or short exercise, a daily "I practised today" tick with "Practised on N days this week" (no streaks), and the "I already do this" button (`routing.json > already_doing`).
+4. **Check-in** (`checkin.json`): days practised pre-filled from ticks; then the weekly adaptation (`routing.json > weekly_adaptation`), then "Coming up next week" with an option to share with the partner, then the practice-plan "when" for the next module, pre-filled.
+5. **Welcome back** (`experience.json > welcome_back`): shown instead of the home screen after a gap. Never mentions missed weeks.
+6. **Finished** (`experience.json > completion`): after the last module's check-in. Private reflection note; all modules stay available; no pressure to restart.
+7. **Progress**: the parent's own check-ins over the weeks (simple SVG chart, no chart library) plus their goal.
+8. **Settings**: learning style, practice plan, partner, reminders, "My usage summary", export / import / delete everything, about and privacy.
 
 ## Tailoring (summary)
 
@@ -76,3 +77,4 @@ Module 2 has two orders: `example_first` and `explanation_first`. It only matter
 
 - (Session 0) Kit created (content v0.3.0: full journey with welcome, practice plan, practice partner, previews, welcome back and completion, plus learning style, short versions, weekly adaptation and calendar reminders). Nothing built yet. Next: session 1 in `docs/session-prompts.md`.
 - (Session 1, 2026-11-22) Skeleton built: Vite 8 + TypeScript + Preact 11, vite-plugin-pwa (offline + installable), content imported at build time, production-only CSP (`vite.config.ts`), GitHub Pages workflow (`.github/workflows/deploy.yml`, base `/behaviour-coach/`). Welcome renders `experience.json > welcome`; Help renders `safety.json` with tap-to-call links; all other screens are placeholders. Shared app text (app name, buttons, screen titles) lives in the new `content/ui.json`. A temporary test menu at the bottom of every screen jumps to any screen (hide it behind a flag in session 5). JSX is compiled via Vite's built-in `oxc` option, so no Preact Vite plugin is needed. Icons are generated by `npm run icons` (Windows only). Next: session 2 (welcome, intake and plan).
+- (2026-11-22) Palette changed to periwinkle + mint (`src/styles.css`, light and dark, WCAG AA). Fast start built: Welcome, Age, Pick a skill, How you'll do it, Add reminders (Android intent links or .ics), then a first This week screen (plan line, module in short/full version, example, when it doesn't work, why). State saved in IndexedDB (`src/state.ts`). Calendar helpers with tests in `src/calendar.ts`. Test menu only shows from the second app open, with a 'Start over' reset. Not yet tested on a real phone: the Android calendar intent links and the .ics on iPhone. Next: daily ticks and Share on This week, then the check-in with the deferred intake questions.

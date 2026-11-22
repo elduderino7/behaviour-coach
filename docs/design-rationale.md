@@ -38,3 +38,23 @@ Welcome → Intake → Your plan → Set up your week (when, who, reminders) →
 ## What to watch in the friend test
 
 The stages where programmes usually lose people: intake completed → week 1 check-in → module 2 started → days practised per week → programme completed. Plus whether a partner was named and shared with. See docs/interview-guide.md.
+
+## Change log
+
+### 2026-11-22: fast start (decided by Tim)
+
+The full intake, plan and "Set up your week" are replaced by a three-step fast start: age → pick a skill → how you'll do it (with calendar entries). Reason: get the parent from opening the app to a planned first week as fast as possible, since the biggest drop-off happens before and right after module 1.
+
+What is kept, and where it moved:
+
+| Ingredient | Where it is now |
+| --- | --- |
+| Tailoring by age | Asked up front (the only question) |
+| Week 1 small, special time first | Special time is pre-marked "Recommended start"; the alternatives (praise, staying calm) are also low-effort, positive starts. Consequences, rewards and routines are not offered as a start, so the consequences gate still holds |
+| If-then practice plan | Step 3, with the plan line shown back before saving |
+| Reminders (check-in on by default) | Step 3: one button creates daily practice and weekly check-in |
+| Short version for low time | Step 3: "About 5 minutes" (default) or "About 10 minutes" |
+| Tailoring by difficulties, stress, co-parent, learning style, goal | Asked at the first check-in, when routing for weeks 2–4 first needs it |
+| Practice partner | Share button on This week (to build) |
+
+What to watch in the friend test: whether fewer up-front questions makes the plan feel less relevant ("why this module" is no longer shown for week 1), and whether parents answer the deferred questions at check-in.

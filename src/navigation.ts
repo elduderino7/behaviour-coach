@@ -1,9 +1,10 @@
-/** Every step of the journey in CLAUDE.md, in order. */
+/** Every screen of the journey, in order. The first five are the fast start. */
 export const SCREENS = [
   'welcome',
-  'intake',
-  'plan',
-  'setup_week',
+  'age',
+  'pick_strategy',
+  'how',
+  'calendar',
   'this_week',
   'checkin',
   'welcome_back',

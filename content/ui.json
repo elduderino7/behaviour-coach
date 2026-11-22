@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft",
   "locale": "en",
   "description": "Shared app text that isn't part of one step of the journey: app name, buttons and screen titles.",
@@ -11,9 +11,10 @@
   "draft_label": "Draft content",
   "screens": {
     "welcome": "Welcome",
-    "intake": "A few questions",
-    "plan": "Your plan",
-    "setup_week": "Set up your week",
+    "age": "Your child",
+    "pick_strategy": "Pick a skill",
+    "how": "How you'll do it",
+    "calendar": "Add reminders",
     "this_week": "This week",
     "checkin": "Check-in",
     "welcome_back": "Welcome back",
@@ -24,5 +25,15 @@
   },
   "placeholder": "This screen is still being built.",
   "dev_menu_title": "Test menu: jump to any screen (temporary)",
-  "call_label": "Call {number}"
+  "call_label": "Call {number}",
+  "test_menu_reset": "Start over (deletes everything on this phone)",
+  "weekdays": [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ]
 }

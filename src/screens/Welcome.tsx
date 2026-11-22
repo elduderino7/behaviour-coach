@@ -16,7 +16,7 @@ export function Welcome({ go }: { go: (s: Screen) => void }) {
           {ui.help_button}
         </button>
       </p>
-      <button type="button" class="primary" onClick={() => go('intake')}>
+      <button type="button" class="primary" onClick={() => go('age')}>
         {w.cta}
       </button>
     </section>

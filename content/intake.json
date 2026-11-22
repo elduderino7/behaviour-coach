@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "status": "draft",
   "locale": "en",
   "intro": "A few quick questions so the coach can suggest where to start. Your answers stay on this phone.",
@@ -22,7 +22,8 @@
           "label": "Younger or older"
         }
       ],
-      "notes": "If 'other': show a short message that the coach is designed for ages 4-16, then let the parent continue with the closest band or stop."
+      "notes": "If 'other': show a short message that the coach is designed for ages 4-16, then let the parent continue with the closest band or stop.",
+      "ask_at": "start"
     },
     {
       "id": "difficulties",
@@ -54,7 +55,8 @@
           "value": "little_good_time",
           "label": "We have little good time together"
         }
-      ]
+      ],
+      "ask_at": "week1_checkin"
     },
     {
       "id": "good_moments",
@@ -73,7 +75,8 @@
           "value": "most_days",
           "label": "Most days"
         }
-      ]
+      ],
+      "ask_at": "week1_checkin"
     },
     {
       "id": "shouting",
@@ -92,7 +95,8 @@
           "value": "often",
           "label": "Often"
         }
-      ]
+      ],
+      "ask_at": "week1_checkin"
     },
     {
       "id": "co_parent",
@@ -108,7 +112,8 @@
           "label": "No"
         }
       ],
-      "used_for": "Module 4 co-parent step; pre-selects the other parent as practice partner."
+      "used_for": "Module 4 co-parent step; pre-selects the other parent as practice partner.",
+      "ask_at": "week1_checkin"
     },
     {
       "id": "minutes",
@@ -128,7 +133,8 @@
           "label": "15 or more"
         }
       ],
-      "used_for": "If 'About 5', modules open in their short version."
+      "used_for": "If 'About 5', modules open in their short version.",
+      "ask_at": "week1_checkin"
     },
     {
       "id": "learning_style",
@@ -144,14 +150,17 @@
           "label": "A short explanation of why it works first"
         }
       ],
-      "notes": "Can be changed at any time in Settings or on the module screen. In 'practical' mode the explanation is one tap away."
+      "notes": "Can be changed at any time in Settings or on the module screen. In 'practical' mode the explanation is one tap away.",
+      "ask_at": "week1_checkin"
     },
     {
       "id": "goal",
       "type": "text",
       "maxLength": 120,
       "text": "In your own words, what would you like to be different in a month?",
-      "placeholder": "For example: mornings without shouting"
+      "placeholder": "For example: mornings without shouting",
+      "ask_at": "week1_checkin"
     }
-  ]
+  ],
+  "ask_at_note": "Fast start: only 'age_band' is asked at the start (experience.json > quick_start). The other questions are asked later, at the first check-in, when routing first needs them."
 }
