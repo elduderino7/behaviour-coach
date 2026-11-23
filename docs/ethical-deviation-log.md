@@ -24,7 +24,7 @@ Added during the build: rule 8 (discreet outside the app) and rule 9 (this log).
 | A2 | Calendar entries leave the phone | 1 | Open, review after friend test |
 | A3 | No network block in development mode | 2 | Accepted |
 | A4 | Temporary test menu | Design rationale, 6 | **Must close before friend launch** |
-| A5 | Saved data from the first fast start discarded | Data ownership | Closed (one-off), Tim to confirm |
+| A5 | Saved data from the first fast start discarded | Data ownership | Closed (one-off), confirmed by Tim |
 | A6 | Fast start instead of the full intake | Design rationale | Open, review after friend test |
 | B1 | Hosting on GitHub Pages | 1 | Open, tell testers |
 | B2 | Public repository | Privacy of the maker | Accepted |
@@ -84,7 +84,7 @@ Added during the build: rule 8 (discreet outside the app) and rule 9 (this log).
 - **Guideline bent:** Data ownership (export didn't exist yet, so the data couldn't be saved first).
 - **Why:** Version 1 had no practice plan, and only Tim had used it.
 - **Risk minimised by:** Happened before any testers. From now on, changes to saved data must migrate it.
-- **Decided by:** Claude while building fast start v2, 22 Nov 2026. **Tim to confirm.**
+- **Decided by:** Claude while building fast start v2, 22 Nov 2026. Confirmed by Tim, 23 Nov 2026.
 - **Review:** Before the friend test: add migrations for any further changes to saved data.
 
 ### A6. Fast start instead of the full intake
