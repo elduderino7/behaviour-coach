@@ -26,6 +26,7 @@ Added during the build: rule 8 (discreet outside the app) and rule 9 (this log).
 | A4 | Temporary test menu | Design rationale, 6 | **Must close before friend launch** |
 | A5 | Saved data from the first fast start discarded | Data ownership | Closed (one-off), confirmed by Tim |
 | A6 | Fast start instead of the full intake | Design rationale | Open, review after friend test |
+| A8 | "Missed a day?" kept in special time tips | 6 (wording) | Accepted, review with B4 |
 | B1 | Hosting on GitHub Pages | 1 | Open, tell testers |
 | B2 | Public repository | Privacy of the maker | Accepted |
 | B3 | GitHub user ID looked up via GitHub's API | 1 (in spirit) | Closed (one-off) |
@@ -96,6 +97,14 @@ Added during the build: rule 8 (discreet outside the app) and rule 9 (this log).
 - **Decided by:** Tim, 22 Nov 2026.
 - **Review:** Friend test: does the plan feel relevant, and do parents answer the deferred questions?
 
+### A8. "Missed a day?" kept in the special time tips
+
+- **What:** Special time's "When it doesn't work" list keeps the line "Missed a day? That's normal. Pick it up the next day."
+- **Guideline bent:** Rule 6 wording. The check-in tailoring spec (`docs/checkin-tailoring.md`, wording principle 5) lists "missed" as a word never to use.
+- **Why:** The sentence uses the word to normalise, not to count or blame, and it's the parent's own likely thought put into words. The spec's principle was written for check-in questions.
+- **Risk minimised by:** It's a tip the parent reads, never a count or a message about them; no screen tracks or shows missed days. New check-in and tailoring text still avoids the word.
+- **Decided by:** Tim, 25 Nov 2026.
+- **Review:** With the professional content review (B4).
 ---
 
 ## Part B: in how the app is made and hosted
