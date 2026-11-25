@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "status": "draft",
+  "locale": "en",
+  "description": "Check-in tailoring (docs/checkin-tailoring.md). Part 1 uses because_you_said; the question bank is added in part 2.",
+  "skip": "Skip",
+  "because_you_said": "Because you said: {answer}"
+}

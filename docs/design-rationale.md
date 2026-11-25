@@ -78,3 +78,12 @@ Implementation notes: on Android the calendar step uses Google Calendar links, a
 | --- | --- | --- | --- |
 | Calendar | Entries look ordinary to outsiders but are clear to the parent (rule 8) | Stigma and fear of being judged or labelled when others see the phone or a shared calendar | Koerting et al. 2013 (stigma); Opie et al. 2024 (privacy lowers stigma barriers) |
 | Whole app | Every departure from the rules is recorded with its reason (`docs/ethical-deviation-log.md`, rule 9) | Trust: the promises can be checked (the code is open source) | Design principle |
+
+### 2026-11-25: check-in tailoring (docs/checkin-tailoring.md)
+
+25 Nov 2026: check-in tailoring (docs/checkin-tailoring.md). The day-4 "How did it go?" question was replaced by result + "What would make the next round easier?". Rows are added as each part is built.
+
+| Journey step | Feature | Barrier it addresses / ingredient it uses | Evidence (short) |
+| --- | --- | --- | --- |
+| Round check-in | "What would make the next round easier?" with fixes as options | Wrong timing, practice hard to fit in, resistance; feeling judged when asked what went wrong | Koerting et al. 2013 (practical barriers); solution-focused framing; engagement review (feeling judged) |
+| Round check-in | Shorter version on request | Practice is hard to fit in | Weekly adaptation rationale (short repeat); implementation intentions (Gollwitzer & Sheeran 2006) |

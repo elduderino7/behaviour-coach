@@ -1,11 +1,27 @@
 import { del, get, set } from 'idb-keyval';
 import type { PracticePlan } from './trial';
+import type { Easier, Result } from './rounds';
 
 export type Phase = 'trial' | 'continue' | 'weekly';
 
+/** The first day-4 check-in format (before 25 Nov 2026). Kept so older saved data still loads. */
 export interface TrialCheckin {
   daysDone: number;
-  feeling: 'better' | 'ok' | 'hard';
+  feeling?: 'better' | 'ok' | 'hard';
+  choice: string;
+  date: string;
+}
+
+/** One round check-in (docs/checkin-tailoring.md, section 1). */
+export interface RoundCheckin {
+  round: number;
+  skill: string;
+  daysDone: number;
+  result: Result;
+  easier?: Easier;
+  /** Which tailoring question the picker chose (part 2). */
+  tailoringAsked?: string;
+  recommended: string;
   choice: string;
   date: string;
 }
@@ -26,8 +42,10 @@ export interface AppState {
   /** "Keep going": 4 more days, ending in the first weekly check-in. */
   followUp?: PracticePlan;
   phase?: Phase;
-  /** Answers from the day-4 check-in (the latest one). */
+  /** Answers from the first day-4 check-in format (older saved data). */
   trialCheckin?: TrialCheckin;
+  /** Every round check-in, oldest first. */
+  roundCheckins?: RoundCheckin[];
   /** Dates ("YYYY-MM-DD") the parent ticked "I practised today". */
   ticks: string[];
   /** How the last reminders were created, if at all. */
@@ -45,9 +63,17 @@ export const DEFAULT_STATE: AppState = {
   onboarded: false,
 };
 
-/** The plan the parent is currently working through. */
+/**
+ * The plan the parent is currently working through. Rounds live in `trial`;
+ * `followUp` is only used by plans saved before the round check-in existed.
+ */
 export function currentPlan(s: AppState): PracticePlan | undefined {
-  return s.phase === 'continue' ? s.followUp : s.trial;
+  return s.phase === 'continue' && s.followUp ? s.followUp : s.trial;
+}
+
+/** The number the next new plan gets: one more than the round check-ins so far. */
+export function nextRoundNumber(s: AppState): number {
+  return (s.roundCheckins?.length ?? 0) + 1;
 }
 
 const KEY = 'state';

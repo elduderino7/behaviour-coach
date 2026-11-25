@@ -1,5 +1,5 @@
 {
-  "version": "0.3.2",
+  "version": "0.4.0",
   "status": "draft",
   "locale": "en",
   "review_note": "DRAFT written from the common components of evidence-based parent training (see docs/sources.md). Must be reviewed by a psychologist before any use beyond the private friend test.",
@@ -55,13 +55,23 @@
           "full": {
             "minutes": 10,
             "event_title": "Coach: 10 min special time"
+          },
+          "shorter": {
+            "minutes": 3,
+            "event_title": "Coach: 3 min special time",
+            "event_notes": "Let them choose. Follow their lead and describe what they do. Three minutes is enough."
           }
         },
         "10-16": {
           "question": "When could you spend 10 minutes with your teen on something they choose?",
           "minutes": 10,
           "event_title": "Coach: 10 min together",
-          "event_notes": "Join something they pick. Listen more than you talk. No advice, school or chores."
+          "event_notes": "Join something they pick. Listen more than you talk. No advice, school or chores.",
+          "shorter": {
+            "minutes": 5,
+            "event_title": "Coach: 5 min together",
+            "event_notes": "Join something they pick for five minutes. Listen more than you talk."
+          }
         }
       }
     },
@@ -118,13 +128,23 @@
           "question": "When is a good moment to catch your child doing something right?",
           "minutes": 5,
           "event_title": "Coach: catch one good moment",
-          "event_notes": "Watch for something done well, even partly. Say exactly what it was, right away."
+          "event_notes": "Watch for something done well, even partly. Say exactly what it was, right away.",
+          "shorter": {
+            "minutes": 1,
+            "event_title": "Coach: one good word",
+            "event_notes": "Say one specific good thing you noticed. One sentence is enough."
+          }
         },
         "10-16": {
           "question": "When is a good moment to notice something your teen does well?",
           "minutes": 5,
           "event_title": "Coach: notice one good thing",
-          "event_notes": "Name one specific thing they did well, in one sentence. Then leave it there."
+          "event_notes": "Name one specific thing they did well, in one sentence. Then leave it there.",
+          "shorter": {
+            "minutes": 1,
+            "event_title": "Coach: one good word",
+            "event_notes": "Say one specific good thing you noticed. One sentence is enough."
+          }
         }
       }
     },
@@ -303,13 +323,23 @@
           "question": "When could you practise the pause for one minute?",
           "minutes": 1,
           "event_title": "Coach: 1 min pause",
-          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising at a quiet moment makes it easier later."
+          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising at a quiet moment makes it easier later.",
+          "shorter": {
+            "minutes": 1,
+            "event_title": "Coach: one slow breath",
+            "event_notes": "Stop and breathe out slowly once. That's the whole practice."
+          }
         },
         "10-16": {
           "question": "When could you practise the pause for one minute?",
           "minutes": 1,
           "event_title": "Coach: 1 min pause",
-          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising at a quiet moment makes it easier later."
+          "event_notes": "Stop. Breathe out slowly three times. Notice how your body feels. Practising at a quiet moment makes it easier later.",
+          "shorter": {
+            "minutes": 1,
+            "event_title": "Coach: one slow breath",
+            "event_notes": "Stop and breathe out slowly once. That's the whole practice."
+          }
         }
       }
     }

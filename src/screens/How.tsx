@@ -4,6 +4,7 @@ import type { ScreenProps } from '../App';
 import { buildIcs, downloadIcs, isAndroid, phoneTimeZone } from '../calendar';
 import { addDays, fromIso, iso, makePlan, trialDays, type PracticePlan } from '../trial';
 import { checkinSentence, eventsFor, planSentence, trialContent } from '../planText';
+import { nextRoundNumber } from '../state';
 
 const c = experience.quick_start.how;
 type Choice = number | 'other' | null;
@@ -47,11 +48,13 @@ export function How({ state, update, go }: ScreenProps) {
 
   const finish = (withReminders: boolean) => {
     if (!plan) return;
+    const round = nextRoundNumber(state);
     const base = {
-      trial: plan,
+      trial: { ...plan, round },
       followUp: undefined,
       phase: 'trial' as const,
-      short: true,
+      // The fast start always uses the short version; later re-plans keep the parent's choice.
+      short: round === 1 ? true : state.short,
       startDate: state.startDate ?? iso(today),
     };
     if (!withReminders) {
@@ -62,7 +65,7 @@ export function How({ state, update, go }: ScreenProps) {
     if (isAndroid()) {
       update({ ...base, reminders: 'google' });
     } else {
-      downloadIcs(buildIcs(eventsFor({ ...state, ...base }, plan), phoneTimeZone()));
+      downloadIcs(buildIcs(eventsFor({ ...state, ...base }, base.trial), phoneTimeZone()));
       update({ ...base, reminders: 'file' });
     }
     go('calendar');

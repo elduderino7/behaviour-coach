@@ -7,8 +7,9 @@ import modules from '../content/modules.json';
 import checkin from '../content/checkin.json';
 import reminders from '../content/reminders.json';
 import safety from '../content/safety.json';
+import tailoring from '../content/tailoring.json';
 
-export { ui, experience, intake, routing, modules, checkin, reminders, safety };
+export { ui, experience, intake, routing, modules, checkin, reminders, safety, tailoring };
 
 /** Replace {name} placeholders in a content string. */
 export function fill(text: string, values: Record<string, string | number>): string {

@@ -305,3 +305,13 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
   font-weight: 600;
 }
 .tick[aria-pressed='true'] { background: var(--highlight); color: var(--highlight-text); border-color: var(--highlight-text); }
+
+/* "Because you said: …" tag on tailored content */
+.because {
+  display: block;
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--highlight-text);
+}
+.choice .because { margin: 0; }

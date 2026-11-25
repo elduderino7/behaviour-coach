@@ -15,6 +15,12 @@ export interface PracticePlan {
   checkinDate: string;
   /** True once the check-in for this plan is done. */
   checkedIn?: boolean;
+  /** Round number: 1 is the fast-start trial. Missing means 1 (older saved plans). */
+  round?: number;
+  /** "shorter": calendar and This week use `trial.shorter` for this round. */
+  variant?: 'shorter';
+  /** What This week shows first this round, from the round check-in's "easier" answer. */
+  focus?: 'pushback' | 'natural';
 }
 
 const pad = (n: number) => String(n).padStart(2, '0');

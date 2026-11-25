@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "status": "draft",
   "locale": "en",
   "description": "All the text for the journey around the modules: welcome, planning the week, the practice partner, the weekly loop, coming back after a gap, and finishing. See docs/design-rationale.md for why each part exists.",
@@ -91,7 +91,8 @@
     "tick_done": "Practised today ✓",
     "trial_days_display": "Practised on {n} of {total} days",
     "checkin_button": "How did it go?",
-    "weekly_checkin_button": "Weekly check-in"
+    "weekly_checkin_button": "Weekly check-in",
+    "shorter_label": "Shorter version"
   },
   "after_checkin": {
     "adaptation": "Message and options from routing.json > weekly_adaptation.",
@@ -247,60 +248,73 @@
   },
   "trial_checkin": {
     "title": "How did it go?",
-    "days_question": "On how many of the {n} days did you do it?",
-    "feeling_question": "How did it go?",
-    "feeling_options": [
+    "description": "The round check-in (docs/checkin-tailoring.md, section 1): result, what would make the next round easier, at most one tailoring question, then the next step from roundNextStep.",
+    "result_question": "How did this round go?",
+    "result_options": [
       {
-        "value": "better",
-        "label": "Better than I expected"
+        "value": "all",
+        "label": "Did it every time"
       },
       {
-        "value": "ok",
-        "label": "OK"
+        "value": "some",
+        "label": "Did it some of the time"
       },
       {
-        "value": "hard",
-        "label": "Hard"
+        "value": "none",
+        "label": "Haven't started yet"
       }
     ],
+    "easier_question": "What would make the next round easier?",
+    "easier_question_weekly": "What would make next week easier?",
+    "easier_options": [
+      {
+        "value": "better_time",
+        "label": "A better time of day"
+      },
+      {
+        "value": "shorter",
+        "label": "A shorter version"
+      },
+      {
+        "value": "pushback",
+        "label": {
+          "4-9": "Ideas for when my child pushes back",
+          "10-16": "Ideas for when my teen pushes back"
+        }
+      },
+      {
+        "value": "natural",
+        "label": "Feeling more natural saying it"
+      },
+      {
+        "value": "ready_more",
+        "label": "It went well, I'm ready for more"
+      }
+    ],
+    "easier_note": "Most parents adjust something after their first rounds.",
+    "easier_skip": "Skip",
     "next_title": "What next?",
-    "next_good": {
-      "message": "Nice work. A few more tries make it feel natural.",
-      "options": [
-        {
-          "value": "keep_going",
-          "label": "Keep going: 4 more days, same time",
-          "recommended": true
-        },
-        {
-          "value": "change",
-          "label": "Change time or days"
-        },
-        {
-          "value": "other_skill",
-          "label": "Try a different skill"
-        }
-      ]
-    },
-    "next_hard": {
-      "message": "Finding the right moment is the hardest part. A different time often helps.",
-      "options": [
-        {
-          "value": "change",
-          "label": "Try a different time",
-          "recommended": true
-        },
-        {
-          "value": "keep_going",
-          "label": "Keep going as is"
-        },
-        {
-          "value": "other_skill",
-          "label": "Try a different skill"
-        }
-      ]
-    },
     "recommended_label": "Suggested",
+    "messages": {
+      "better_time": "Finding the right moment is the hardest part. Let's try another one.",
+      "not_started": "Getting started is often the trickiest bit. A different time can make it easier.",
+      "two_hard": "Some skills fit some families better. Another one might click more easily right now.",
+      "shorter": "Shorter counts. A small version done often works better than a long one done rarely.",
+      "pushback": "Pushback is common at the start. The tips for that are at the top this round.",
+      "natural": "It feels odd at first for most parents. The example is at the top this round to borrow from.",
+      "ready_more": "Nice. A few more tries make it feel natural.",
+      "ready_more_rhythm": "You've got a rhythm going. A weekly plan could be a good next step.",
+      "ok": "Thanks. Here's a suggestion for the next round."
+    },
+    "next_options": {
+      "keep_going": "Keep going: 3 more days, same time",
+      "keep_going_shorter": "Keep going with the shorter version",
+      "keep_as_is": "Keep going as is",
+      "change_time": "Try a different time",
+      "change": "Change time or days",
+      "other_skill": "Try a different skill",
+      "rhythm": "Move to a weekly rhythm"
+    },
     "full_version_offer": "Ready for the 10-minute version?",
     "full_version_options": [
       "Yes, try 10 minutes",
